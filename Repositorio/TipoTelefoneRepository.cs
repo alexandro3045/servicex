@@ -4,17 +4,17 @@ using Model;
 namespace Repositorio
 {
 
-    public class UsuarioRepository : Repository<Usuario, int>
+    public class TipoTelefoneRepository : Repository<TipoTelefone, int>
     {
         #region singleton Instance
-        private static UsuarioRepository _instance;
+        private static TipoTelefoneRepository _instance;
 
-        public static UsuarioRepository Instance
+        public static TipoTelefoneRepository Instance
         {
             get
             {
                 if (_instance == null)
-                    _instance = new UsuarioRepository();
+                    _instance = new TipoTelefoneRepository();
 
                 return _instance;
             }
@@ -22,3 +22,4 @@ namespace Repositorio
         #endregion
     }
 }
+

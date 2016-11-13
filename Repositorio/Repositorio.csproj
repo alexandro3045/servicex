@@ -69,7 +69,7 @@
     <Compile Include="TelaRepository.cs" />
     <Compile Include="TelefonesCliRepository.cs" />
     <Compile Include="TelefonesProfRepository.cs" />
-    <Compile Include="Tipo_TelefoneRepository.cs" />
+    <Compile Include="TipoTelefoneRepository.cs" />
     <Compile Include="UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
