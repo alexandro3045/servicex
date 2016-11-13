@@ -6,6 +6,7 @@ namespace Repositorio
      where TEntity : Entity
     {
 
+
         #region singleton Instance
         private static EspecielidadeRepository<TEntity> _instance;
 
