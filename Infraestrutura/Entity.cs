@@ -1,18 +1,22 @@
-﻿using System;
+﻿using Contracts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Infraestrutura
 {
-    public abstract class IEntity<TId>
+    [Serializable]
+    public  class IEntity<TId>
       where TId : struct
     {
         [Key]
         public virtual TId cod { get; protected set; }
     }
-    // with most commonly used identity
-    public abstract class Entity : IEntity<int> { }
+
+    [Serializable]
+    public  class Entity : IEntity<int> { }
 }

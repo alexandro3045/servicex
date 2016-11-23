@@ -65,24 +65,11 @@ namespace Infraestrutura
             }
         }
 
-        void IUnitOfWork.RegistraAlterado(Entity entidade, IUnitOfWorkRepository unitofWorkRepository)
+        public void Dispose()
         {
-            throw new NotImplementedException();
-        }
-
-        void IUnitOfWork.RegistraNovo(Entity entidade, IUnitOfWorkRepository unitofWorkRepository)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IUnitOfWork.RegistraRemovido(Entity entidade, IUnitOfWorkRepository unitofWorkRepository)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IUnitOfWork.Commit()
-        {
-            throw new NotImplementedException();
+            entidadesAdicionadas = new Dictionary<Entity, IUnitOfWorkRepository>();
+            entidadesAlteradas = new Dictionary<Entity, IUnitOfWorkRepository>();
+            entidadesDeletadas = new Dictionary<Entity, IUnitOfWorkRepository>();
         }
     }
     
