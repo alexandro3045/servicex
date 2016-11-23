@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ae863ae5de92414f8ec182d24d1a12da" Name="Diagram1">
+        <EntityTypeShape EntityType="SERVICEXModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SERVICEXModel.Agendamento" Width="1.5" PointX="7.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SERVICEXModel.Cliente" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SERVICEXModel.Especialidade" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SERVICEXModel.PerfilAcesso" Width="1.5" PointX="12" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SERVICEXModel.Perfil" Width="1.5" PointX="9.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SERVICEXModel.Profissional" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SERVICEXModel.Servico" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SERVICEXModel.Tela" Width="1.5" PointX="9.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SERVICEXModel.Telefones_Cli" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SERVICEXModel.Telefones_Prof" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SERVICEXModel.Tipo_Telefone" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SERVICEXModel.Usuario" Width="1.5" PointX="12" PointY="6.875" IsExpanded="true" />
+        <AssociationConnector Association="SERVICEXModel.FK_dbo_Agendamentoes_dbo_Clientes_cod_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="SERVICEXModel.FK_dbo_Agendamentoes_dbo_Profissionals_cod_profissional" ManuallyRouted="false" />
+        <AssociationConnector Association="SERVICEXModel.FK_dbo_Agendamentoes_dbo_Servicoes_cod_servico" ManuallyRouted="false" />
+        <AssociationConnector Association="SERVICEXModel.FK_dbo_Telefones_Cli_dbo_Clientes_cod_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="SERVICEXModel.FK_dbo_Profissionals_dbo_Especialidades_cod_especialidade" ManuallyRouted="false" />
+        <AssociationConnector Association="SERVICEXModel.FK_dbo_PerfilAcessoes_dbo_Perfils_cod_perfil" ManuallyRouted="false" />
+        <AssociationConnector Association="SERVICEXModel.FK_dbo_PerfilAcessoes_dbo_Telas_cod_tela" ManuallyRouted="false" />
+        <AssociationConnector Association="SERVICEXModel.FK_dbo_Usuarios_dbo_Perfils_Perfil_cod" ManuallyRouted="false" />
+        <AssociationConnector Association="SERVICEXModel.FK_dbo_Servicoes_dbo_Profissionals_cod_profissional" ManuallyRouted="false" />
+        <AssociationConnector Association="SERVICEXModel.FK_dbo_Telefones_Prof_dbo_Profissionals_cod_profissional" ManuallyRouted="false" />
+        <AssociationConnector Association="SERVICEXModel.FK_dbo_Telefones_Cli_dbo_Tipo_Telefone_cod_tipo_telefone" ManuallyRouted="false" />
+        <AssociationConnector Association="SERVICEXModel.FK_dbo_Telefones_Prof_dbo_Tipo_Telefone_cod_tipo_telefone" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

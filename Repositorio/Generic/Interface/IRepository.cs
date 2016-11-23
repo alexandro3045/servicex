@@ -1,6 +1,7 @@
 ﻿using Infraestrutura;
 using Repositorio.Generic.Utils;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -15,6 +16,8 @@ namespace Repositorio
     {
         #region methods
 
+        void InitializeRepository();
+
         void InsertPersistente(TEntity entity);
 
         void InsertPersistente(Entity entidade);
@@ -27,24 +30,34 @@ namespace Repositorio
 
         void Salvar(Entity cls);
 
+        void Salvar(List<Entity> entities);
+
         void Adicionar(Entity cls);
+
+        void Adicionar(List<Entity> entities);
 
         void Remover(Entity cls);
 
+        void Remover(List<Entity> entities);
+
         void Dispose();
 
-        IQueryable<TEntity> GetAll(
-           Expression<Func<TEntity, bool>> where = null,
-           Expression<Func<TEntity, object>> orderBy = null);
+        void Commit();
 
-        PaginatedList<TEntity> Paginate(int pageIndex, int pageSize);
+        IUnitOfWork GetUnitOfWork();
+
+        //IQueryable<TEntity> GetAll(
+        //   Expression<Func<TEntity, bool>> where = null,
+        //   Expression<Func<TEntity, object>> orderBy = null);
+
+        PaginatedList<Entity> Paginate(int pageIndex, int pageSize);
 
         //TEntity GetSingle(TId id);
 
-        IQueryable<TEntity> GetAllIncluding(
-          Expression<Func<TEntity, bool>> where,
-          Expression<Func<TEntity, object>> orderBy,
-          params Expression<Func<TEntity, object>>[] includeProperties);
+        //IQueryable<TEntity> GetAllIncluding(
+        //  Expression<Func<TEntity, bool>> where,
+        //  Expression<Func<TEntity, object>> orderBy,
+        //  params Expression<Func<TEntity, object>>[] includeProperties);
 
         //TEntity GetSingleIncluding(TId id, params Expression<Func<TEntity, object>>[] includeProperties);
 
@@ -56,4 +69,9 @@ namespace Repositorio
         where TEntity : Entity
     {
     }
+
+    public interface IRepository : IRepository<Entity>
+    {
+    }
+
 }

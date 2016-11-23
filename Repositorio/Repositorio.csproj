@@ -40,6 +40,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -49,15 +50,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgendamentoRepository.cs" />
-    <Compile Include="ClienteRepository.cs" />
-    <Compile Include="EspecielidadeRepository.cs" />
+    <Compile Include="Interface\ITipoTelefoneRepository.cs" />
+    <Compile Include="Repository\AgendamentoRepository.cs" />
+    <Compile Include="Repository\ClienteRepository.cs" />
+    <Compile Include="Repository\EspecialidadeRepository.cs" />
     <Compile Include="Generic\Interface\IRepository.cs" />
     <Compile Include="Generic\Utils\PaginatedList.cs" />
-    <Compile Include="PerfilAcessoRepository.cs" />
-    <Compile Include="PerfilRepository.cs" />
-    <Compile Include="ProdutoRepository.cs" />
-    <Compile Include="ProfissionalRepository.cs" />
+    <Compile Include="Repository\PerfilAcessoRepository.cs" />
+    <Compile Include="Repository\PerfilRepository.cs" />
+    <Compile Include="Repository\ProfissionalRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -65,21 +66,21 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Generic\Repository.cs" />
-    <Compile Include="ServicoRepository.cs" />
-    <Compile Include="TelaRepository.cs" />
-    <Compile Include="TelefonesCliRepository.cs" />
-    <Compile Include="TelefonesProfRepository.cs" />
-    <Compile Include="TipoTelefoneRepository.cs" />
-    <Compile Include="UsuarioRepository.cs" />
+    <Compile Include="Repository\ServicoRepository.cs" />
+    <Compile Include="Repository\TelaRepository.cs" />
+    <Compile Include="Repository\TelefonesCliRepository.cs" />
+    <Compile Include="Repository\TelefonesProfRepository.cs" />
+    <Compile Include="Repository\TipoTelefoneRepository.cs" />
+    <Compile Include="Repository\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Infraestrutura\Infraestrutura.csproj">
       <Project>{33676f2b-d052-48d6-9e96-ee8755fb20e4}</Project>
       <Name>Infraestrutura</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Modelo\Modelo.csproj">
+    <ProjectReference Include="..\Persistencia\Persistencia.csproj">
       <Project>{b44cea2b-67c4-42a9-ab9d-9a9298816750}</Project>
-      <Name>Modelo</Name>
+      <Name>Persistencia</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

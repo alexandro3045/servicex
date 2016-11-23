@@ -6,6 +6,8 @@ namespace Repositorio.Generic.Utils
 {
     public class PaginatedList<T> : List<T>
     {
+        private IQueryable<object> queryable;
+
         public int PageIndex { get; private set; }
         public int PageSize { get; private set; }
         public int TotalCount { get; private set; }
@@ -19,6 +21,13 @@ namespace Repositorio.Generic.Utils
             TotalPages = (int)Math.Ceiling(TotalCount / (double)PageSize);
 
             this.AddRange(source.Skip(PageIndex * PageSize).Take(PageSize));
+        }
+
+        public PaginatedList(IQueryable<object> queryable, int pageIndex, int pageSize)
+        {
+            this.queryable = queryable;
+            PageIndex = pageIndex;
+            PageSize = pageSize;
         }
 
         public bool HasPreviousPage

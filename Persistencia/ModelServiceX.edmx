@@ -1,0 +1,927 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SERVICEXModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Agendamentoes">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="data_agendamento" Type="datetime" Nullable="false" />
+          <Property Name="horario_agendamento" Type="datetime" Nullable="false" />
+          <Property Name="cod_cliente" Type="int" Nullable="false" />
+          <Property Name="cod_profissional" Type="int" Nullable="false" />
+          <Property Name="observacoes" Type="nvarchar(max)" />
+          <Property Name="cod_servico" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar(max)" />
+          <Property Name="CPF" Type="nvarchar(max)" />
+          <Property Name="data_nascimento" Type="datetime" />
+          <Property Name="sexo" Type="nvarchar(max)" />
+          <Property Name="estado_civil" Type="nvarchar(max)" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="observacoes" Type="nvarchar(max)" />
+          <Property Name="endereco" Type="nvarchar(max)" />
+          <Property Name="numero_end" Type="int" />
+          <Property Name="CEP" Type="int" />
+          <Property Name="bairro" Type="nvarchar(max)" />
+          <Property Name="cidade" Type="nvarchar(max)" />
+          <Property Name="estado" Type="nvarchar(max)" />
+          <Property Name="telefone" Type="nvarchar(max)" />
+          <Property Name="celular" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Especialidades">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="PerfilAcessoes">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cod_tela" Type="int" Nullable="false" />
+          <Property Name="cod_perfil" Type="int" Nullable="false" />
+          <Property Name="permissao" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Perfils">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Profissionals">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar(max)" />
+          <Property Name="CPF" Type="nvarchar(max)" />
+          <Property Name="data_nascimento" Type="datetime" />
+          <Property Name="sexo" Type="nvarchar(max)" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="cod_especialidade" Type="int" Nullable="false" />
+          <Property Name="observacoes" Type="nvarchar(max)" />
+          <Property Name="endereco" Type="nvarchar(max)" />
+          <Property Name="numero_end" Type="int" />
+          <Property Name="CEP" Type="nvarchar(max)" />
+          <Property Name="bairro" Type="nvarchar(max)" />
+          <Property Name="cidade" Type="nvarchar(max)" />
+          <Property Name="estado" Type="nvarchar(max)" />
+          <Property Name="telefone" Type="nvarchar(max)" />
+          <Property Name="celular" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Servicoes">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar(max)" />
+          <Property Name="tipoServico" Type="nvarchar(max)" />
+          <Property Name="TempoExecucao" Type="datetime" Nullable="false" />
+          <Property Name="descricao" Type="nvarchar(max)" />
+          <Property Name="valor" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="observacoes" Type="nvarchar(max)" />
+          <Property Name="cod_profissional" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Telas">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tela1" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Telefones_Cli">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DDD" Type="int" />
+          <Property Name="numero" Type="int" />
+          <Property Name="cod_tipo_telefone" Type="int" />
+          <Property Name="cod_cliente" Type="int" />
+        </EntityType>
+        <EntityType Name="Telefones_Prof">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DDD" Type="int" />
+          <Property Name="numero" Type="int" />
+          <Property Name="cod_tipo_telefone" Type="int" />
+          <Property Name="cod_profissional" Type="int" />
+        </EntityType>
+        <EntityType Name="Tipo_Telefone">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="desc_tipo_telefone" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="nvarchar(max)" />
+          <Property Name="login" Type="nvarchar(max)" />
+          <Property Name="senha" Type="nvarchar(max)" />
+          <Property Name="tipoacesso" Type="int" Nullable="false" />
+          <Property Name="Perfil_cod" Type="int" />
+        </EntityType>
+        <Association Name="FK_dbo_Agendamentoes_dbo_Clientes_cod_cliente">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="Agendamentoes" Type="Self.Agendamentoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Agendamentoes">
+              <PropertyRef Name="cod_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Agendamentoes_dbo_Profissionals_cod_profissional">
+          <End Role="Profissionals" Type="Self.Profissionals" Multiplicity="1" />
+          <End Role="Agendamentoes" Type="Self.Agendamentoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profissionals">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Agendamentoes">
+              <PropertyRef Name="cod_profissional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Agendamentoes_dbo_Servicoes_cod_servico">
+          <End Role="Servicoes" Type="Self.Servicoes" Multiplicity="1" />
+          <End Role="Agendamentoes" Type="Self.Agendamentoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicoes">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Agendamentoes">
+              <PropertyRef Name="cod_servico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PerfilAcessoes_dbo_Perfils_cod_perfil">
+          <End Role="Perfils" Type="Self.Perfils" Multiplicity="1" />
+          <End Role="PerfilAcessoes" Type="Self.PerfilAcessoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfils">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="PerfilAcessoes">
+              <PropertyRef Name="cod_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PerfilAcessoes_dbo_Telas_cod_tela">
+          <End Role="Telas" Type="Self.Telas" Multiplicity="1" />
+          <End Role="PerfilAcessoes" Type="Self.PerfilAcessoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Telas">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="PerfilAcessoes">
+              <PropertyRef Name="cod_tela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Profissionals_dbo_Especialidades_cod_especialidade">
+          <End Role="Especialidades" Type="Self.Especialidades" Multiplicity="1" />
+          <End Role="Profissionals" Type="Self.Profissionals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Especialidades">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Profissionals">
+              <PropertyRef Name="cod_especialidade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Servicoes_dbo_Profissionals_cod_profissional">
+          <End Role="Profissionals" Type="Self.Profissionals" Multiplicity="1" />
+          <End Role="Servicoes" Type="Self.Servicoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profissionals">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Servicoes">
+              <PropertyRef Name="cod_profissional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Telefones_Cli_dbo_Clientes_cod_cliente">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Telefones_Cli" Type="Self.Telefones_Cli" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Telefones_Cli">
+              <PropertyRef Name="cod_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Telefones_Cli_dbo_Tipo_Telefone_cod_tipo_telefone">
+          <End Role="Tipo_Telefone" Type="Self.Tipo_Telefone" Multiplicity="0..1" />
+          <End Role="Telefones_Cli" Type="Self.Telefones_Cli" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Telefone">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Telefones_Cli">
+              <PropertyRef Name="cod_tipo_telefone" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Telefones_Prof_dbo_Profissionals_cod_profissional">
+          <End Role="Profissionals" Type="Self.Profissionals" Multiplicity="0..1" />
+          <End Role="Telefones_Prof" Type="Self.Telefones_Prof" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profissionals">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Telefones_Prof">
+              <PropertyRef Name="cod_profissional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Telefones_Prof_dbo_Tipo_Telefone_cod_tipo_telefone">
+          <End Role="Tipo_Telefone" Type="Self.Tipo_Telefone" Multiplicity="0..1" />
+          <End Role="Telefones_Prof" Type="Self.Telefones_Prof" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Telefone">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Telefones_Prof">
+              <PropertyRef Name="cod_tipo_telefone" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Usuarios_dbo_Perfils_Perfil_cod">
+          <End Role="Perfils" Type="Self.Perfils" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfils">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Perfil_cod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SERVICEXModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Agendamentoes" EntityType="Self.Agendamentoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Especialidades" EntityType="Self.Especialidades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PerfilAcessoes" EntityType="Self.PerfilAcessoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Perfils" EntityType="Self.Perfils" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profissionals" EntityType="Self.Profissionals" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servicoes" EntityType="Self.Servicoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Telas" EntityType="Self.Telas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Telefones_Cli" EntityType="Self.Telefones_Cli" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Telefones_Prof" EntityType="Self.Telefones_Prof" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Telefone" EntityType="Self.Tipo_Telefone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_Agendamentoes_dbo_Clientes_cod_cliente" Association="Self.FK_dbo_Agendamentoes_dbo_Clientes_cod_cliente">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Agendamentoes" EntitySet="Agendamentoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Agendamentoes_dbo_Profissionals_cod_profissional" Association="Self.FK_dbo_Agendamentoes_dbo_Profissionals_cod_profissional">
+            <End Role="Profissionals" EntitySet="Profissionals" />
+            <End Role="Agendamentoes" EntitySet="Agendamentoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Agendamentoes_dbo_Servicoes_cod_servico" Association="Self.FK_dbo_Agendamentoes_dbo_Servicoes_cod_servico">
+            <End Role="Servicoes" EntitySet="Servicoes" />
+            <End Role="Agendamentoes" EntitySet="Agendamentoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PerfilAcessoes_dbo_Perfils_cod_perfil" Association="Self.FK_dbo_PerfilAcessoes_dbo_Perfils_cod_perfil">
+            <End Role="Perfils" EntitySet="Perfils" />
+            <End Role="PerfilAcessoes" EntitySet="PerfilAcessoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PerfilAcessoes_dbo_Telas_cod_tela" Association="Self.FK_dbo_PerfilAcessoes_dbo_Telas_cod_tela">
+            <End Role="Telas" EntitySet="Telas" />
+            <End Role="PerfilAcessoes" EntitySet="PerfilAcessoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Profissionals_dbo_Especialidades_cod_especialidade" Association="Self.FK_dbo_Profissionals_dbo_Especialidades_cod_especialidade">
+            <End Role="Especialidades" EntitySet="Especialidades" />
+            <End Role="Profissionals" EntitySet="Profissionals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Servicoes_dbo_Profissionals_cod_profissional" Association="Self.FK_dbo_Servicoes_dbo_Profissionals_cod_profissional">
+            <End Role="Profissionals" EntitySet="Profissionals" />
+            <End Role="Servicoes" EntitySet="Servicoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Telefones_Cli_dbo_Clientes_cod_cliente" Association="Self.FK_dbo_Telefones_Cli_dbo_Clientes_cod_cliente">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Telefones_Cli" EntitySet="Telefones_Cli" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Telefones_Cli_dbo_Tipo_Telefone_cod_tipo_telefone" Association="Self.FK_dbo_Telefones_Cli_dbo_Tipo_Telefone_cod_tipo_telefone">
+            <End Role="Tipo_Telefone" EntitySet="Tipo_Telefone" />
+            <End Role="Telefones_Cli" EntitySet="Telefones_Cli" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Telefones_Prof_dbo_Profissionals_cod_profissional" Association="Self.FK_dbo_Telefones_Prof_dbo_Profissionals_cod_profissional">
+            <End Role="Profissionals" EntitySet="Profissionals" />
+            <End Role="Telefones_Prof" EntitySet="Telefones_Prof" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Telefones_Prof_dbo_Tipo_Telefone_cod_tipo_telefone" Association="Self.FK_dbo_Telefones_Prof_dbo_Tipo_Telefone_cod_tipo_telefone">
+            <End Role="Tipo_Telefone" EntitySet="Tipo_Telefone" />
+            <End Role="Telefones_Prof" EntitySet="Telefones_Prof" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Usuarios_dbo_Perfils_Perfil_cod" Association="Self.FK_dbo_Usuarios_dbo_Perfils_Perfil_cod">
+            <End Role="Perfils" EntitySet="Perfils" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SERVICEXModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Agendamento">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="data_agendamento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="horario_agendamento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="cod_cliente" Type="Int32" Nullable="false" />
+          <Property Name="cod_profissional" Type="Int32" Nullable="false" />
+          <Property Name="observacoes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cod_servico" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK_dbo_Agendamentoes_dbo_Clientes_cod_cliente" FromRole="Agendamentoes" ToRole="Clientes" />
+          <NavigationProperty Name="Profissional" Relationship="Self.FK_dbo_Agendamentoes_dbo_Profissionals_cod_profissional" FromRole="Agendamentoes" ToRole="Profissionals" />
+          <NavigationProperty Name="Servico" Relationship="Self.FK_dbo_Agendamentoes_dbo_Servicoes_cod_servico" FromRole="Agendamentoes" ToRole="Servicoes" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CPF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="data_nascimento" Type="DateTime" Precision="3" />
+          <Property Name="sexo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="estado_civil" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="observacoes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="endereco" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="numero_end" Type="Int32" />
+          <Property Name="CEP" Type="Int32" />
+          <Property Name="bairro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cidade" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="telefone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="celular" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Agendamentoes" Relationship="Self.FK_dbo_Agendamentoes_dbo_Clientes_cod_cliente" FromRole="Clientes" ToRole="Agendamentoes" />
+          <NavigationProperty Name="Telefones_Cli" Relationship="Self.FK_dbo_Telefones_Cli_dbo_Clientes_cod_cliente" FromRole="Clientes" ToRole="Telefones_Cli" />
+        </EntityType>
+        <EntityType Name="Especialidade">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Profissionals" Relationship="Self.FK_dbo_Profissionals_dbo_Especialidades_cod_especialidade" FromRole="Especialidades" ToRole="Profissionals" />
+        </EntityType>
+        <EntityType Name="PerfilAcesso">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_tela" Type="Int32" Nullable="false" />
+          <Property Name="cod_perfil" Type="Int32" Nullable="false" />
+          <Property Name="permissao" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Perfil" Relationship="Self.FK_dbo_PerfilAcessoes_dbo_Perfils_cod_perfil" FromRole="PerfilAcessoes" ToRole="Perfils" />
+          <NavigationProperty Name="Tela" Relationship="Self.FK_dbo_PerfilAcessoes_dbo_Telas_cod_tela" FromRole="PerfilAcessoes" ToRole="Telas" />
+        </EntityType>
+        <EntityType Name="Perfil">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PerfilAcessoes" Relationship="Self.FK_dbo_PerfilAcessoes_dbo_Perfils_cod_perfil" FromRole="Perfils" ToRole="PerfilAcessoes" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_dbo_Usuarios_dbo_Perfils_Perfil_cod" FromRole="Perfils" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Profissional">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CPF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="data_nascimento" Type="DateTime" Precision="3" />
+          <Property Name="sexo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cod_especialidade" Type="Int32" Nullable="false" />
+          <Property Name="observacoes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="endereco" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="numero_end" Type="Int32" />
+          <Property Name="CEP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="bairro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cidade" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="telefone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="celular" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Agendamentoes" Relationship="Self.FK_dbo_Agendamentoes_dbo_Profissionals_cod_profissional" FromRole="Profissionals" ToRole="Agendamentoes" />
+          <NavigationProperty Name="Especialidade" Relationship="Self.FK_dbo_Profissionals_dbo_Especialidades_cod_especialidade" FromRole="Profissionals" ToRole="Especialidades" />
+          <NavigationProperty Name="Servicoes" Relationship="Self.FK_dbo_Servicoes_dbo_Profissionals_cod_profissional" FromRole="Profissionals" ToRole="Servicoes" />
+          <NavigationProperty Name="Telefones_Prof" Relationship="Self.FK_dbo_Telefones_Prof_dbo_Profissionals_cod_profissional" FromRole="Profissionals" ToRole="Telefones_Prof" />
+        </EntityType>
+        <EntityType Name="Servico">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tipoServico" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TempoExecucao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="valor" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="observacoes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cod_profissional" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Agendamentoes" Relationship="Self.FK_dbo_Agendamentoes_dbo_Servicoes_cod_servico" FromRole="Servicoes" ToRole="Agendamentoes" />
+          <NavigationProperty Name="Profissional" Relationship="Self.FK_dbo_Servicoes_dbo_Profissionals_cod_profissional" FromRole="Servicoes" ToRole="Profissionals" />
+        </EntityType>
+        <EntityType Name="Tela">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tela1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PerfilAcessoes" Relationship="Self.FK_dbo_PerfilAcessoes_dbo_Telas_cod_tela" FromRole="Telas" ToRole="PerfilAcessoes" />
+        </EntityType>
+        <EntityType Name="Telefones_Cli">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DDD" Type="Int32" />
+          <Property Name="numero" Type="Int32" />
+          <Property Name="cod_tipo_telefone" Type="Int32" />
+          <Property Name="cod_cliente" Type="Int32" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK_dbo_Telefones_Cli_dbo_Clientes_cod_cliente" FromRole="Telefones_Cli" ToRole="Clientes" />
+          <NavigationProperty Name="Tipo_Telefone" Relationship="Self.FK_dbo_Telefones_Cli_dbo_Tipo_Telefone_cod_tipo_telefone" FromRole="Telefones_Cli" ToRole="Tipo_Telefone" />
+        </EntityType>
+        <EntityType Name="Telefones_Prof">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DDD" Type="Int32" />
+          <Property Name="numero" Type="Int32" />
+          <Property Name="cod_tipo_telefone" Type="Int32" />
+          <Property Name="cod_profissional" Type="Int32" />
+          <NavigationProperty Name="Profissional" Relationship="Self.FK_dbo_Telefones_Prof_dbo_Profissionals_cod_profissional" FromRole="Telefones_Prof" ToRole="Profissionals" />
+          <NavigationProperty Name="Tipo_Telefone" Relationship="Self.FK_dbo_Telefones_Prof_dbo_Tipo_Telefone_cod_tipo_telefone" FromRole="Telefones_Prof" ToRole="Tipo_Telefone" />
+        </EntityType>
+        <EntityType Name="Tipo_Telefone">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="desc_tipo_telefone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Telefones_Cli" Relationship="Self.FK_dbo_Telefones_Cli_dbo_Tipo_Telefone_cod_tipo_telefone" FromRole="Tipo_Telefone" ToRole="Telefones_Cli" />
+          <NavigationProperty Name="Telefones_Prof" Relationship="Self.FK_dbo_Telefones_Prof_dbo_Tipo_Telefone_cod_tipo_telefone" FromRole="Tipo_Telefone" ToRole="Telefones_Prof" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="senha" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tipoacesso" Type="Int32" Nullable="false" />
+          <Property Name="Perfil_cod" Type="Int32" />
+          <NavigationProperty Name="Perfil" Relationship="Self.FK_dbo_Usuarios_dbo_Perfils_Perfil_cod" FromRole="Usuarios" ToRole="Perfils" />
+        </EntityType>
+        <Association Name="FK_dbo_Agendamentoes_dbo_Clientes_cod_cliente">
+          <End Role="Clientes" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Agendamentoes" Type="Self.Agendamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Agendamentoes">
+              <PropertyRef Name="cod_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Agendamentoes_dbo_Profissionals_cod_profissional">
+          <End Role="Profissionals" Type="Self.Profissional" Multiplicity="1" />
+          <End Role="Agendamentoes" Type="Self.Agendamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profissionals">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Agendamentoes">
+              <PropertyRef Name="cod_profissional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Agendamentoes_dbo_Servicoes_cod_servico">
+          <End Role="Servicoes" Type="Self.Servico" Multiplicity="1" />
+          <End Role="Agendamentoes" Type="Self.Agendamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicoes">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Agendamentoes">
+              <PropertyRef Name="cod_servico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Telefones_Cli_dbo_Clientes_cod_cliente">
+          <End Role="Clientes" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Telefones_Cli" Type="Self.Telefones_Cli" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Telefones_Cli">
+              <PropertyRef Name="cod_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Profissionals_dbo_Especialidades_cod_especialidade">
+          <End Role="Especialidades" Type="Self.Especialidade" Multiplicity="1" />
+          <End Role="Profissionals" Type="Self.Profissional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Especialidades">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Profissionals">
+              <PropertyRef Name="cod_especialidade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PerfilAcessoes_dbo_Perfils_cod_perfil">
+          <End Role="Perfils" Type="Self.Perfil" Multiplicity="1" />
+          <End Role="PerfilAcessoes" Type="Self.PerfilAcesso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfils">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="PerfilAcessoes">
+              <PropertyRef Name="cod_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PerfilAcessoes_dbo_Telas_cod_tela">
+          <End Role="Telas" Type="Self.Tela" Multiplicity="1" />
+          <End Role="PerfilAcessoes" Type="Self.PerfilAcesso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Telas">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="PerfilAcessoes">
+              <PropertyRef Name="cod_tela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Usuarios_dbo_Perfils_Perfil_cod">
+          <End Role="Perfils" Type="Self.Perfil" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfils">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Perfil_cod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Servicoes_dbo_Profissionals_cod_profissional">
+          <End Role="Profissionals" Type="Self.Profissional" Multiplicity="1" />
+          <End Role="Servicoes" Type="Self.Servico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profissionals">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Servicoes">
+              <PropertyRef Name="cod_profissional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Telefones_Prof_dbo_Profissionals_cod_profissional">
+          <End Role="Profissionals" Type="Self.Profissional" Multiplicity="0..1" />
+          <End Role="Telefones_Prof" Type="Self.Telefones_Prof" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profissionals">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Telefones_Prof">
+              <PropertyRef Name="cod_profissional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Telefones_Cli_dbo_Tipo_Telefone_cod_tipo_telefone">
+          <End Role="Tipo_Telefone" Type="Self.Tipo_Telefone" Multiplicity="0..1" />
+          <End Role="Telefones_Cli" Type="Self.Telefones_Cli" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Telefone">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Telefones_Cli">
+              <PropertyRef Name="cod_tipo_telefone" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Telefones_Prof_dbo_Tipo_Telefone_cod_tipo_telefone">
+          <End Role="Tipo_Telefone" Type="Self.Tipo_Telefone" Multiplicity="0..1" />
+          <End Role="Telefones_Prof" Type="Self.Telefones_Prof" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Telefone">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="Telefones_Prof">
+              <PropertyRef Name="cod_tipo_telefone" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SERVICEX" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="Agendamentoes" EntityType="Self.Agendamento" />
+          <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+          <EntitySet Name="Especialidades" EntityType="Self.Especialidade" />
+          <EntitySet Name="PerfilAcessoes" EntityType="Self.PerfilAcesso" />
+          <EntitySet Name="Perfils" EntityType="Self.Perfil" />
+          <EntitySet Name="Profissionals" EntityType="Self.Profissional" />
+          <EntitySet Name="Servicoes" EntityType="Self.Servico" />
+          <EntitySet Name="Telas" EntityType="Self.Tela" />
+          <EntitySet Name="Telefones_Cli" EntityType="Self.Telefones_Cli" />
+          <EntitySet Name="Telefones_Prof" EntityType="Self.Telefones_Prof" />
+          <EntitySet Name="Tipo_Telefone" EntityType="Self.Tipo_Telefone" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK_dbo_Agendamentoes_dbo_Clientes_cod_cliente" Association="Self.FK_dbo_Agendamentoes_dbo_Clientes_cod_cliente">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Agendamentoes" EntitySet="Agendamentoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Agendamentoes_dbo_Profissionals_cod_profissional" Association="Self.FK_dbo_Agendamentoes_dbo_Profissionals_cod_profissional">
+            <End Role="Profissionals" EntitySet="Profissionals" />
+            <End Role="Agendamentoes" EntitySet="Agendamentoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Agendamentoes_dbo_Servicoes_cod_servico" Association="Self.FK_dbo_Agendamentoes_dbo_Servicoes_cod_servico">
+            <End Role="Servicoes" EntitySet="Servicoes" />
+            <End Role="Agendamentoes" EntitySet="Agendamentoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Telefones_Cli_dbo_Clientes_cod_cliente" Association="Self.FK_dbo_Telefones_Cli_dbo_Clientes_cod_cliente">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Telefones_Cli" EntitySet="Telefones_Cli" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Profissionals_dbo_Especialidades_cod_especialidade" Association="Self.FK_dbo_Profissionals_dbo_Especialidades_cod_especialidade">
+            <End Role="Especialidades" EntitySet="Especialidades" />
+            <End Role="Profissionals" EntitySet="Profissionals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PerfilAcessoes_dbo_Perfils_cod_perfil" Association="Self.FK_dbo_PerfilAcessoes_dbo_Perfils_cod_perfil">
+            <End Role="Perfils" EntitySet="Perfils" />
+            <End Role="PerfilAcessoes" EntitySet="PerfilAcessoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PerfilAcessoes_dbo_Telas_cod_tela" Association="Self.FK_dbo_PerfilAcessoes_dbo_Telas_cod_tela">
+            <End Role="Telas" EntitySet="Telas" />
+            <End Role="PerfilAcessoes" EntitySet="PerfilAcessoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Usuarios_dbo_Perfils_Perfil_cod" Association="Self.FK_dbo_Usuarios_dbo_Perfils_Perfil_cod">
+            <End Role="Perfils" EntitySet="Perfils" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Servicoes_dbo_Profissionals_cod_profissional" Association="Self.FK_dbo_Servicoes_dbo_Profissionals_cod_profissional">
+            <End Role="Profissionals" EntitySet="Profissionals" />
+            <End Role="Servicoes" EntitySet="Servicoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Telefones_Prof_dbo_Profissionals_cod_profissional" Association="Self.FK_dbo_Telefones_Prof_dbo_Profissionals_cod_profissional">
+            <End Role="Profissionals" EntitySet="Profissionals" />
+            <End Role="Telefones_Prof" EntitySet="Telefones_Prof" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Telefones_Cli_dbo_Tipo_Telefone_cod_tipo_telefone" Association="Self.FK_dbo_Telefones_Cli_dbo_Tipo_Telefone_cod_tipo_telefone">
+            <End Role="Tipo_Telefone" EntitySet="Tipo_Telefone" />
+            <End Role="Telefones_Cli" EntitySet="Telefones_Cli" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Telefones_Prof_dbo_Tipo_Telefone_cod_tipo_telefone" Association="Self.FK_dbo_Telefones_Prof_dbo_Tipo_Telefone_cod_tipo_telefone">
+            <End Role="Tipo_Telefone" EntitySet="Tipo_Telefone" />
+            <End Role="Telefones_Prof" EntitySet="Telefones_Prof" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SERVICEXModelStoreContainer" CdmEntityContainer="SERVICEX">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="SERVICEXModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Agendamentoes">
+            <EntityTypeMapping TypeName="SERVICEXModel.Agendamento">
+              <MappingFragment StoreEntitySet="Agendamentoes">
+                <ScalarProperty Name="cod" ColumnName="cod" />
+                <ScalarProperty Name="data_agendamento" ColumnName="data_agendamento" />
+                <ScalarProperty Name="horario_agendamento" ColumnName="horario_agendamento" />
+                <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+                <ScalarProperty Name="cod_profissional" ColumnName="cod_profissional" />
+                <ScalarProperty Name="observacoes" ColumnName="observacoes" />
+                <ScalarProperty Name="cod_servico" ColumnName="cod_servico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="SERVICEXModel.Cliente">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="cod" ColumnName="cod" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="data_nascimento" ColumnName="data_nascimento" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="estado_civil" ColumnName="estado_civil" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="observacoes" ColumnName="observacoes" />
+                <ScalarProperty Name="endereco" ColumnName="endereco" />
+                <ScalarProperty Name="numero_end" ColumnName="numero_end" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="bairro" ColumnName="bairro" />
+                <ScalarProperty Name="cidade" ColumnName="cidade" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="telefone" ColumnName="telefone" />
+                <ScalarProperty Name="celular" ColumnName="celular" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Especialidades">
+            <EntityTypeMapping TypeName="SERVICEXModel.Especialidade">
+              <MappingFragment StoreEntitySet="Especialidades">
+                <ScalarProperty Name="cod" ColumnName="cod" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PerfilAcessoes">
+            <EntityTypeMapping TypeName="SERVICEXModel.PerfilAcesso">
+              <MappingFragment StoreEntitySet="PerfilAcessoes">
+                <ScalarProperty Name="cod" ColumnName="cod" />
+                <ScalarProperty Name="cod_tela" ColumnName="cod_tela" />
+                <ScalarProperty Name="cod_perfil" ColumnName="cod_perfil" />
+                <ScalarProperty Name="permissao" ColumnName="permissao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Perfils">
+            <EntityTypeMapping TypeName="SERVICEXModel.Perfil">
+              <MappingFragment StoreEntitySet="Perfils">
+                <ScalarProperty Name="cod" ColumnName="cod" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profissionals">
+            <EntityTypeMapping TypeName="SERVICEXModel.Profissional">
+              <MappingFragment StoreEntitySet="Profissionals">
+                <ScalarProperty Name="cod" ColumnName="cod" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="data_nascimento" ColumnName="data_nascimento" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="cod_especialidade" ColumnName="cod_especialidade" />
+                <ScalarProperty Name="observacoes" ColumnName="observacoes" />
+                <ScalarProperty Name="endereco" ColumnName="endereco" />
+                <ScalarProperty Name="numero_end" ColumnName="numero_end" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="bairro" ColumnName="bairro" />
+                <ScalarProperty Name="cidade" ColumnName="cidade" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="telefone" ColumnName="telefone" />
+                <ScalarProperty Name="celular" ColumnName="celular" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicoes">
+            <EntityTypeMapping TypeName="SERVICEXModel.Servico">
+              <MappingFragment StoreEntitySet="Servicoes">
+                <ScalarProperty Name="cod" ColumnName="cod" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="tipoServico" ColumnName="tipoServico" />
+                <ScalarProperty Name="TempoExecucao" ColumnName="TempoExecucao" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+                <ScalarProperty Name="observacoes" ColumnName="observacoes" />
+                <ScalarProperty Name="cod_profissional" ColumnName="cod_profissional" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Telas">
+            <EntityTypeMapping TypeName="SERVICEXModel.Tela">
+              <MappingFragment StoreEntitySet="Telas">
+                <ScalarProperty Name="cod" ColumnName="cod" />
+                <ScalarProperty Name="tela1" ColumnName="tela1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Telefones_Cli">
+            <EntityTypeMapping TypeName="SERVICEXModel.Telefones_Cli">
+              <MappingFragment StoreEntitySet="Telefones_Cli">
+                <ScalarProperty Name="cod" ColumnName="cod" />
+                <ScalarProperty Name="DDD" ColumnName="DDD" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="cod_tipo_telefone" ColumnName="cod_tipo_telefone" />
+                <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Telefones_Prof">
+            <EntityTypeMapping TypeName="SERVICEXModel.Telefones_Prof">
+              <MappingFragment StoreEntitySet="Telefones_Prof">
+                <ScalarProperty Name="cod" ColumnName="cod" />
+                <ScalarProperty Name="DDD" ColumnName="DDD" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="cod_tipo_telefone" ColumnName="cod_tipo_telefone" />
+                <ScalarProperty Name="cod_profissional" ColumnName="cod_profissional" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Telefone">
+            <EntityTypeMapping TypeName="SERVICEXModel.Tipo_Telefone">
+              <MappingFragment StoreEntitySet="Tipo_Telefone">
+                <ScalarProperty Name="cod" ColumnName="cod" />
+                <ScalarProperty Name="desc_tipo_telefone" ColumnName="desc_tipo_telefone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="SERVICEXModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="cod" ColumnName="cod" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="senha" ColumnName="senha" />
+                <ScalarProperty Name="tipoacesso" ColumnName="tipoacesso" />
+                <ScalarProperty Name="Perfil_cod" ColumnName="Perfil_cod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
