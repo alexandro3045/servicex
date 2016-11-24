@@ -108,19 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Service1.svc" />
-    <Content Include="Services\SvcAgendamento.svc" />
-    <Content Include="Services\SvcCliente.svc" />
-    <Content Include="Services\SvcEspecialidade.svc" />
-    <Content Include="Services\SvcPerfil.svc" />
-    <Content Include="Services\SvcPerfilAcesso.svc" />
-    <Content Include="Services\SvcProfissional.svc" />
-    <Content Include="Services\SvcServico.svc" />
-    <Content Include="Services\SvcTela.svc" />
-    <Content Include="Services\SvcTelefonesCli.svc" />
-    <Content Include="Services\SvcTelefonesProf.svc" />
     <Content Include="Services\SvcTipoTelefone.svc" />
-    <Content Include="Services\SvcUsuario.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -135,63 +123,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Service1.svc.cs">
-      <DependentUpon>Service1.svc</DependentUpon>
-    </Compile>
-    <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Interface\ISvcAgendamento.cs" />
-    <Compile Include="Interface\ISvcCliente.cs" />
-    <Compile Include="Interface\ISvcEspecialidade.cs" />
-    <Compile Include="Interface\ISvcPerfil.cs" />
-    <Compile Include="Interface\ISvcPerfilAcesso.cs" />
-    <Compile Include="Interface\ISvcProfissional.cs" />
-    <Compile Include="Interface\ISvcServico.cs" />
-    <Compile Include="Interface\ISvcTela.cs" />
-    <Compile Include="Interface\ISvcTelefonesCli.cs" />
-    <Compile Include="Interface\ISvcTelefonesProf.cs" />
     <Compile Include="Services\ISvcTipoTelefone.cs" />
-    <Compile Include="Interface\ISvcUsuario.cs" />
-    <Compile Include="Services\SvcAgendamento.svc.cs">
-      <DependentUpon>SvcAgendamento.svc</DependentUpon>
-    </Compile>
-    <Compile Include="Services\SvcCliente.svc.cs">
-      <DependentUpon>SvcCliente.svc</DependentUpon>
-    </Compile>
-    <Compile Include="Services\SvcEspecialidade.svc.cs">
-      <DependentUpon>SvcEspecialidade.svc</DependentUpon>
-    </Compile>
-    <Compile Include="Services\SvcPerfil.svc.cs">
-      <DependentUpon>SvcPerfil.svc</DependentUpon>
-    </Compile>
-    <Compile Include="Services\SvcPerfilAcesso.svc.cs">
-      <DependentUpon>SvcPerfilAcesso.svc</DependentUpon>
-    </Compile>
-    <Compile Include="Services\SvcProfissional.svc.cs">
-      <DependentUpon>SvcProfissional.svc</DependentUpon>
-    </Compile>
-    <Compile Include="Services\SvcServico.svc.cs">
-      <DependentUpon>SvcServico.svc</DependentUpon>
-    </Compile>
-    <Compile Include="Services\SvcTela.svc.cs">
-      <DependentUpon>SvcTela.svc</DependentUpon>
-    </Compile>
-    <Compile Include="Services\SvcTelefonesCli.svc.cs">
-      <DependentUpon>SvcTelefonesCli.svc</DependentUpon>
-    </Compile>
-    <Compile Include="Services\SvcTelefonesProf.svc.cs">
-      <DependentUpon>SvcTelefonesProf.svc</DependentUpon>
-    </Compile>
     <Compile Include="Services\SvcTipoTelefone.svc.cs">
       <DependentUpon>SvcTipoTelefone.svc</DependentUpon>
-    </Compile>
-    <Compile Include="Services\SvcUsuario.svc.cs">
-      <DependentUpon>SvcUsuario.svc</DependentUpon>
     </Compile>
     <Compile Include="WCFNinjectModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Interface\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

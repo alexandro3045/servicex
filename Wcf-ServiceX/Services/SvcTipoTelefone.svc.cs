@@ -1,43 +1,42 @@
-﻿using Model;
+﻿using Infraestrutura;
+using Model;
 using Repositorio;
-using System;
+using System.ServiceModel;
 using System.ServiceModel.Description;
 using Wcf_ServiceX.Generic;
-
+using System;
 
 namespace Wcf_ServiceX.Services
 {
-    [Serializable]
-    [DurableService()]
-    public class SvcTipoTelefone : GenericService<TipoTelefoneRepository>, ISvcTipoTelefone
+    [System.Serializable]
+    //[DurableService()]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
+    public class SvcTipoTelefone :  GenericService<TipoTelefoneRepository,TipoTelefone>, ISvcTipoTelefone
     {
-        public SvcTipoTelefone(TipoTelefoneRepository repository)
-        {
-            Initialize(repository);
-        }
 
         public SvcTipoTelefone()
         {
             Initialize(TipoTelefoneRepository.Instance);           
         }
 
-        public void SetAddEntity(TipoTelefone param)
-        {
-            AddEntity(param);
-            AddEntities();
-        }
 
-        public void SetAddUpdateEntity(TipoTelefone param)
-        {
-            AddUpdateEntity(param);
-            SalvarEntities();
-        }
+        //public void SetAdd(TipoTelefone param)//(TipoTelefone param)
+        //{
+        //    AddEntity(param);
+        //    AddEntities();
+        //}
 
-        public void SetAddRemoveEntity(TipoTelefone param)
-        {
-            AddRemoveEntity(param);
-            RemoveEntities();
-        }
+        //public void SetUpdate(TipoTelefone param)
+        //{
+        //    AddUpdateEntity(param);
+        //    SalvarEntities();
+        //}
+
+        //public void SetRemove(TipoTelefone param)
+        //{
+        //    AddRemoveEntity(param);
+        //    RemoveEntities();
+        //}
 
         //[DurableOperation(CanCreateInstance = true)]
         //public void Initialize()

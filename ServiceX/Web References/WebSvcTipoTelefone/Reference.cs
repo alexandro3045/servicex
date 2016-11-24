@@ -32,9 +32,7 @@ namespace ServiceX.WebSvcTipoTelefone {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IEntityOfint))]
     public partial class SvcTipoTelefone : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback AddEntitiesOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback SetOperationCompleted;
+        private System.Threading.SendOrPostCallback CompleteOperationCompleted;
         
         private System.Threading.SendOrPostCallback SalvarOperationCompleted;
         
@@ -44,7 +42,7 @@ namespace ServiceX.WebSvcTipoTelefone {
         
         private System.Threading.SendOrPostCallback AdicionarOperationCompleted;
         
-        private System.Threading.SendOrPostCallback AdicionarEntitiesOperationCompleted;
+        private System.Threading.SendOrPostCallback AddEntitiesOperationCompleted;
         
         private System.Threading.SendOrPostCallback RemoverOperationCompleted;
         
@@ -52,11 +50,11 @@ namespace ServiceX.WebSvcTipoTelefone {
         
         private System.Threading.SendOrPostCallback PaginateOperationCompleted;
         
-        private System.Threading.SendOrPostCallback InitializeServiceOperationCompleted;
+        private System.Threading.SendOrPostCallback SetAddOperationCompleted;
         
-        private System.Threading.SendOrPostCallback InitializeServiceInstanceOperationCompleted;
+        private System.Threading.SendOrPostCallback SetUpdateOperationCompleted;
         
-        private System.Threading.SendOrPostCallback CompletesServiceInstanceOperationCompleted;
+        private System.Threading.SendOrPostCallback SetRemoveOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -98,10 +96,7 @@ namespace ServiceX.WebSvcTipoTelefone {
         }
         
         /// <remarks/>
-        public event AddEntitiesCompletedEventHandler AddEntitiesCompleted;
-        
-        /// <remarks/>
-        public event SetCompletedEventHandler SetCompleted;
+        public event CompleteCompletedEventHandler CompleteCompleted;
         
         /// <remarks/>
         public event SalvarCompletedEventHandler SalvarCompleted;
@@ -116,7 +111,7 @@ namespace ServiceX.WebSvcTipoTelefone {
         public event AdicionarCompletedEventHandler AdicionarCompleted;
         
         /// <remarks/>
-        public event AdicionarEntitiesCompletedEventHandler AdicionarEntitiesCompleted;
+        public event AddEntitiesCompletedEventHandler AddEntitiesCompleted;
         
         /// <remarks/>
         public event RemoverCompletedEventHandler RemoverCompleted;
@@ -128,72 +123,43 @@ namespace ServiceX.WebSvcTipoTelefone {
         public event PaginateCompletedEventHandler PaginateCompleted;
         
         /// <remarks/>
-        public event InitializeServiceCompletedEventHandler InitializeServiceCompleted;
+        public event SetAddCompletedEventHandler SetAddCompleted;
         
         /// <remarks/>
-        public event InitializeServiceInstanceCompletedEventHandler InitializeServiceInstanceCompleted;
+        public event SetUpdateCompletedEventHandler SetUpdateCompleted;
         
         /// <remarks/>
-        public event CompletesServiceInstanceCompletedEventHandler CompletesServiceInstanceCompleted;
+        public event SetRemoveCompletedEventHandler SetRemoveCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericService/AddEntities", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AddEntities([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Entity _entity) {
-            this.Invoke("AddEntities", new object[] {
-                        _entity});
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Complete" +
+            "", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void Complete() {
+            this.Invoke("Complete", new object[0]);
         }
         
         /// <remarks/>
-        public void AddEntitiesAsync(Entity _entity) {
-            this.AddEntitiesAsync(_entity, null);
+        public void CompleteAsync() {
+            this.CompleteAsync(null);
         }
         
         /// <remarks/>
-        public void AddEntitiesAsync(Entity _entity, object userState) {
-            if ((this.AddEntitiesOperationCompleted == null)) {
-                this.AddEntitiesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddEntitiesOperationCompleted);
+        public void CompleteAsync(object userState) {
+            if ((this.CompleteOperationCompleted == null)) {
+                this.CompleteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCompleteOperationCompleted);
             }
-            this.InvokeAsync("AddEntities", new object[] {
-                        _entity}, this.AddEntitiesOperationCompleted, userState);
+            this.InvokeAsync("Complete", new object[0], this.CompleteOperationCompleted, userState);
         }
         
-        private void OnAddEntitiesOperationCompleted(object arg) {
-            if ((this.AddEntitiesCompleted != null)) {
+        private void OnCompleteOperationCompleted(object arg) {
+            if ((this.CompleteCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.AddEntitiesCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.CompleteCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericService/Set", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void Set([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Entity _entity) {
-            this.Invoke("Set", new object[] {
-                        _entity});
-        }
-        
-        /// <remarks/>
-        public void SetAsync(Entity _entity) {
-            this.SetAsync(_entity, null);
-        }
-        
-        /// <remarks/>
-        public void SetAsync(Entity _entity, object userState) {
-            if ((this.SetOperationCompleted == null)) {
-                this.SetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSetOperationCompleted);
-            }
-            this.InvokeAsync("Set", new object[] {
-                        _entity}, this.SetOperationCompleted, userState);
-        }
-        
-        private void OnSetOperationCompleted(object arg) {
-            if ((this.SetCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.SetCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericService/Salvar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Salvar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public void Salvar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Entity cls) {
             this.Invoke("Salvar", new object[] {
                         cls});
@@ -221,7 +187,8 @@ namespace ServiceX.WebSvcTipoTelefone {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericService/SalvarEntities", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/SalvarEn" +
+            "tities", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public void SalvarEntities() {
             this.Invoke("SalvarEntities", new object[0]);
         }
@@ -247,7 +214,8 @@ namespace ServiceX.WebSvcTipoTelefone {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericService/AdicionarEntity", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Adiciona" +
+            "rEntity", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public void AdicionarEntity([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Entity cls) {
             this.Invoke("AdicionarEntity", new object[] {
                         cls});
@@ -275,7 +243,8 @@ namespace ServiceX.WebSvcTipoTelefone {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericService/Adicionar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Adiciona" +
+            "r", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public void Adicionar() {
             this.Invoke("Adicionar", new object[0]);
         }
@@ -301,33 +270,36 @@ namespace ServiceX.WebSvcTipoTelefone {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericService/AdicionarEntities", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AdicionarEntities() {
-            this.Invoke("AdicionarEntities", new object[0]);
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/AddEntit" +
+            "ies", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AddEntities([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] TipoTelefone clas) {
+            this.Invoke("AddEntities", new object[] {
+                        clas});
         }
         
         /// <remarks/>
-        public void AdicionarEntitiesAsync() {
-            this.AdicionarEntitiesAsync(null);
+        public void AddEntitiesAsync(TipoTelefone clas) {
+            this.AddEntitiesAsync(clas, null);
         }
         
         /// <remarks/>
-        public void AdicionarEntitiesAsync(object userState) {
-            if ((this.AdicionarEntitiesOperationCompleted == null)) {
-                this.AdicionarEntitiesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAdicionarEntitiesOperationCompleted);
+        public void AddEntitiesAsync(TipoTelefone clas, object userState) {
+            if ((this.AddEntitiesOperationCompleted == null)) {
+                this.AddEntitiesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddEntitiesOperationCompleted);
             }
-            this.InvokeAsync("AdicionarEntities", new object[0], this.AdicionarEntitiesOperationCompleted, userState);
+            this.InvokeAsync("AddEntities", new object[] {
+                        clas}, this.AddEntitiesOperationCompleted, userState);
         }
         
-        private void OnAdicionarEntitiesOperationCompleted(object arg) {
-            if ((this.AdicionarEntitiesCompleted != null)) {
+        private void OnAddEntitiesOperationCompleted(object arg) {
+            if ((this.AddEntitiesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.AdicionarEntitiesCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.AddEntitiesCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericService/Remover", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Remover", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public void Remover([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Entity cls) {
             this.Invoke("Remover", new object[] {
                         cls});
@@ -355,7 +327,8 @@ namespace ServiceX.WebSvcTipoTelefone {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericService/RemoverEntities", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/RemoverE" +
+            "ntities", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public void RemoverEntities() {
             this.Invoke("RemoverEntities", new object[0]);
         }
@@ -381,9 +354,10 @@ namespace ServiceX.WebSvcTipoTelefone {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericService/Paginate", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Paginate" +
+            "", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Infraestrutura")]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="DATACONTRACTS")]
         public Entity[] Paginate(int pageIndex, [System.Xml.Serialization.XmlIgnoreAttribute()] bool pageIndexSpecified, int pageSize, [System.Xml.Serialization.XmlIgnoreAttribute()] bool pageSizeSpecified) {
             object[] results = this.Invoke("Paginate", new object[] {
                         pageIndex,
@@ -418,82 +392,86 @@ namespace ServiceX.WebSvcTipoTelefone {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ISvcTipoTelefone/InitializeService", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void InitializeService([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] TipoTelefone _tipoTelefone) {
-            this.Invoke("InitializeService", new object[] {
-                        _tipoTelefone});
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ISvcTipoTelefone/SetAdd", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void SetAdd([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] TipoTelefone param) {
+            this.Invoke("SetAdd", new object[] {
+                        param});
         }
         
         /// <remarks/>
-        public void InitializeServiceAsync(TipoTelefone _tipoTelefone) {
-            this.InitializeServiceAsync(_tipoTelefone, null);
+        public void SetAddAsync(TipoTelefone param) {
+            this.SetAddAsync(param, null);
         }
         
         /// <remarks/>
-        public void InitializeServiceAsync(TipoTelefone _tipoTelefone, object userState) {
-            if ((this.InitializeServiceOperationCompleted == null)) {
-                this.InitializeServiceOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInitializeServiceOperationCompleted);
+        public void SetAddAsync(TipoTelefone param, object userState) {
+            if ((this.SetAddOperationCompleted == null)) {
+                this.SetAddOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSetAddOperationCompleted);
             }
-            this.InvokeAsync("InitializeService", new object[] {
-                        _tipoTelefone}, this.InitializeServiceOperationCompleted, userState);
+            this.InvokeAsync("SetAdd", new object[] {
+                        param}, this.SetAddOperationCompleted, userState);
         }
         
-        private void OnInitializeServiceOperationCompleted(object arg) {
-            if ((this.InitializeServiceCompleted != null)) {
+        private void OnSetAddOperationCompleted(object arg) {
+            if ((this.SetAddCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.InitializeServiceCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.SetAddCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ISvcTipoTelefone/InitializeServiceInstance", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void InitializeServiceInstance() {
-            this.Invoke("InitializeServiceInstance", new object[0]);
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ISvcTipoTelefone/SetUpdate", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void SetUpdate([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] TipoTelefone param) {
+            this.Invoke("SetUpdate", new object[] {
+                        param});
         }
         
         /// <remarks/>
-        public void InitializeServiceInstanceAsync() {
-            this.InitializeServiceInstanceAsync(null);
+        public void SetUpdateAsync(TipoTelefone param) {
+            this.SetUpdateAsync(param, null);
         }
         
         /// <remarks/>
-        public void InitializeServiceInstanceAsync(object userState) {
-            if ((this.InitializeServiceInstanceOperationCompleted == null)) {
-                this.InitializeServiceInstanceOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInitializeServiceInstanceOperationCompleted);
+        public void SetUpdateAsync(TipoTelefone param, object userState) {
+            if ((this.SetUpdateOperationCompleted == null)) {
+                this.SetUpdateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSetUpdateOperationCompleted);
             }
-            this.InvokeAsync("InitializeServiceInstance", new object[0], this.InitializeServiceInstanceOperationCompleted, userState);
+            this.InvokeAsync("SetUpdate", new object[] {
+                        param}, this.SetUpdateOperationCompleted, userState);
         }
         
-        private void OnInitializeServiceInstanceOperationCompleted(object arg) {
-            if ((this.InitializeServiceInstanceCompleted != null)) {
+        private void OnSetUpdateOperationCompleted(object arg) {
+            if ((this.SetUpdateCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.InitializeServiceInstanceCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.SetUpdateCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ISvcTipoTelefone/CompletesServiceInstance", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void CompletesServiceInstance() {
-            this.Invoke("CompletesServiceInstance", new object[0]);
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ISvcTipoTelefone/SetRemove", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void SetRemove([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] TipoTelefone param) {
+            this.Invoke("SetRemove", new object[] {
+                        param});
         }
         
         /// <remarks/>
-        public void CompletesServiceInstanceAsync() {
-            this.CompletesServiceInstanceAsync(null);
+        public void SetRemoveAsync(TipoTelefone param) {
+            this.SetRemoveAsync(param, null);
         }
         
         /// <remarks/>
-        public void CompletesServiceInstanceAsync(object userState) {
-            if ((this.CompletesServiceInstanceOperationCompleted == null)) {
-                this.CompletesServiceInstanceOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCompletesServiceInstanceOperationCompleted);
+        public void SetRemoveAsync(TipoTelefone param, object userState) {
+            if ((this.SetRemoveOperationCompleted == null)) {
+                this.SetRemoveOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSetRemoveOperationCompleted);
             }
-            this.InvokeAsync("CompletesServiceInstance", new object[0], this.CompletesServiceInstanceOperationCompleted, userState);
+            this.InvokeAsync("SetRemove", new object[] {
+                        param}, this.SetRemoveOperationCompleted, userState);
         }
         
-        private void OnCompletesServiceInstanceOperationCompleted(object arg) {
-            if ((this.CompletesServiceInstanceCompleted != null)) {
+        private void OnSetRemoveOperationCompleted(object arg) {
+            if ((this.SetRemoveCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.CompletesServiceInstanceCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.SetRemoveCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -529,7 +507,7 @@ namespace ServiceX.WebSvcTipoTelefone {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Infraestrutura")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="DATACONTRACTS")]
     public partial class Entity : IEntityOfint {
     }
     
@@ -547,19 +525,70 @@ namespace ServiceX.WebSvcTipoTelefone {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Infraestrutura")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="DATACONTRACTS")]
     public partial class IEntityOfint {
         
-        private int codk__BackingFieldField;
+        private byte[] concurrencyTokenField;
+        
+        private int codField;
+        
+        private bool codFieldSpecified;
+        
+        private string idField;
+        
+        private string refField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("<cod>k__BackingField")]
-        public int codk__BackingField {
+        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary", IsNullable=true)]
+        public byte[] ConcurrencyToken {
             get {
-                return this.codk__BackingFieldField;
+                return this.concurrencyTokenField;
             }
             set {
-                this.codk__BackingFieldField = value;
+                this.concurrencyTokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int cod {
+            get {
+                return this.codField;
+            }
+            set {
+                this.codField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool codSpecified {
+            get {
+                return this.codFieldSpecified;
+            }
+            set {
+                this.codFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://schemas.microsoft.com/2003/10/Serialization/", DataType="ID")]
+        public string Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://schemas.microsoft.com/2003/10/Serialization/", DataType="IDREF")]
+        public string Ref {
+            get {
+                return this.refField;
+            }
+            set {
+                this.refField = value;
             }
         }
     }
@@ -1839,11 +1868,7 @@ namespace ServiceX.WebSvcTipoTelefone {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    public delegate void AddEntitiesCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    public delegate void SetCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void CompleteCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
@@ -1863,7 +1888,7 @@ namespace ServiceX.WebSvcTipoTelefone {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    public delegate void AdicionarEntitiesCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void AddEntitiesCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
@@ -1901,15 +1926,15 @@ namespace ServiceX.WebSvcTipoTelefone {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    public delegate void InitializeServiceCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void SetAddCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    public delegate void InitializeServiceInstanceCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void SetUpdateCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    public delegate void CompletesServiceInstanceCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void SetRemoveCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

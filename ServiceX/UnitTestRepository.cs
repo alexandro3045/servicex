@@ -48,14 +48,25 @@ namespace ServiceX
                 Model.TipoTelefone tp = new Model.TipoTelefone() { desc_tipo_telefone = "ss8" };
                 Model.TipoTelefone tp1 = new Model.TipoTelefone() { desc_tipo_telefone = "ss9" };
                 Model.TipoTelefone tp2 = new Model.TipoTelefone() { desc_tipo_telefone = "ss10" };
-                
-                using (var service = new SvcTipoTelefone.SvcTipoTelefoneClient())
+
+                using (var service = new SvcTipoTelefones.SvcTipoTelefoneClient())
                 {
-                    service.SetAddEntity(tp);
-                    service.SetAddEntity(tp1);
-                    service.SetAddEntity(tp2);
+                    service.AddEntities(tp);
+                    service.AddEntities(tp1);
+                    service.AddEntities(tp2);
                     service.Complete();
                 }
+
+                //WebSvcTipoTelefone.TipoTelefone tp = new WebSvcTipoTelefone.TipoTelefone() { desc_tipo_telefone = "ss8" };
+                //WebSvcTipoTelefone.TipoTelefone tp1 = new WebSvcTipoTelefone.TipoTelefone() { desc_tipo_telefone = "ss9" };
+                //WebSvcTipoTelefone.TipoTelefone tp2 = new WebSvcTipoTelefone.TipoTelefone() { desc_tipo_telefone = "ss10" };
+                //using (var service = new WebSvcTipoTelefone.SvcTipoTelefone())// SvcTipoTelefone.SvcTipoTelefoneClient())
+                //{
+                //    service.AddEntities(tp);
+                //    service.SetAdd(tp1);
+                //    service.SetAdd(tp2);
+                //    service.Complete();
+                //}
 
             }
             catch (Exception ex)

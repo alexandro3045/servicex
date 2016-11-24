@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Results>
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd2" filename="SvcTipoTelefone.xsd" />
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd1" filename="SvcTipoTelefone0.xsd" />
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd0" filename="SvcTipoTelefone1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd1" filename="SvcTipoTelefone.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd0" filename="SvcTipoTelefone0.xsd" />
     <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://localhost:2288/Services/SvcTipoTelefone.svc?disco" filename="SvcTipoTelefone.disco" />
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd3" filename="SvcTipoTelefone2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd3" filename="SvcTipoTelefone1.xsd" />
     <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://localhost:2288/Services/SvcTipoTelefone.svc?wsdl" filename="SvcTipoTelefone.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd2" filename="SvcTipoTelefone2.xsd" />
   </Results>
 </DiscoveryClientResultsFile>

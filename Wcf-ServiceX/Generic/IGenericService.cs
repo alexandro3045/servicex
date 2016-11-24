@@ -8,8 +8,7 @@ using Wcf_ServiceX.Decorator;
 namespace Wcf_ServiceX.Generic
 {
     [ServiceContract]
-    public interface IGenericService<TRep>
-       where TRep : IRepository
+    public interface IGenericService<TRep, TEntity>
     {
         //[OperationContract]
         //[EfDataContractSerializer]
@@ -31,36 +30,48 @@ namespace Wcf_ServiceX.Generic
         //[EfDataContractSerializer]
         //void Set(Entity _entity);
 
-        [OperationContract]
-        [EfDataContractSerializer]
-        void Salvar(Entity cls);
-
-        [OperationContract]
-        [EfDataContractSerializer]
-        void SalvarEntities();
-
-        [OperationContract]
-        [EfDataContractSerializer]
-        void AdicionarEntity(Entity cls);
-
-        [OperationContract]
-        [EfDataContractSerializer]
-        void Adicionar();
+        //[OperationContract]
+        //[EfDataContractSerializer]
+        //void Salvar(Entity cls);
 
         //[OperationContract]
         //[EfDataContractSerializer]
-        //void AddEntities();
+        //void SalvarEntities();
 
         [OperationContract]
         [EfDataContractSerializer]
-        void Remover(Entity cls);
+        void Add(TEntity param);
 
         [OperationContract]
         [EfDataContractSerializer]
-        void RemoverEntities();
+        void Update(TEntity param);
 
         [OperationContract]
         [EfDataContractSerializer]
-        PaginatedList<Entity> Paginate(int pageIndex, int pageSize);
+        void Remove(TEntity param);
+
+        //[OperationContract]
+        //[EfDataContractSerializer]
+        //PaginatedList<TEntity> Paginate(int pageIndex, int pageSize);
+
+
+
+        //[OperationContract]
+        //[EfDataContractSerializer]
+        //void Adicionar();
+
+        //[OperationContract]
+        //[EfDataContractSerializer]
+        //void AddEntities(TEntity clas);
+
+        //[OperationContract]
+        //[EfDataContractSerializer]
+        //void Remover(Entity cls);
+
+        //[OperationContract]
+        //[EfDataContractSerializer]
+        //void RemoverEntities();
+
+
     }
 }

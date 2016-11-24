@@ -1,22 +1,24 @@
-﻿using Contracts;
+﻿using Domain;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infraestrutura
 {
     [Serializable]
+    [DataContract(Namespace = DomainConstants.DataContractNamespace, IsReference = true)]
     public  class IEntity<TId>
       where TId : struct
     {
         [Key]
+        [DataMember]
         public virtual TId cod { get; protected set; }
+
+        //[DataMember]
+        //public virtual byte[] ConcurrencyToken { get; set; }
     }
 
     [Serializable]
-    public  class Entity : IEntity<int> { }
+    [DataContract(Namespace = DomainConstants.DataContractNamespace, IsReference = true)]
+    public class Entity : IEntity<int> { }
 }

@@ -54,9 +54,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Contracts\Contracts.csproj">
-      <Project>{00A217CD-C2D6-4752-B4C5-1149785A1F77}</Project>
-      <Name>Contracts</Name>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{f55b2d77-3cae-46a4-83f7-50607f595f71}</Project>
+      <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

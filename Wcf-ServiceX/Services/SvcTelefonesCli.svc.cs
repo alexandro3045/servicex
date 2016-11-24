@@ -1,8 +1,6 @@
-﻿using System;
-using Model;
+﻿using Model;
 using Repositorio;
 using Wcf_ServiceX.Generic;
-using Wcf_ServiceX.Interface;
 
 namespace Wcf_ServiceX.Services
 {

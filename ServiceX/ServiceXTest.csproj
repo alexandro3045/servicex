@@ -85,7 +85,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Service References\SvcTipoTelefone\Reference.cs">
+    <Compile Include="Service References\SvcTipoTelefones\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -127,17 +127,17 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Service References\SvcTipoTelefone\SvcTipoTelefone.wsdl" />
-    <None Include="Service References\SvcTipoTelefone\SvcTipoTelefone.xsd">
+    <None Include="Service References\SvcTipoTelefones\SvcTipoTelefone.wsdl" />
+    <None Include="Service References\SvcTipoTelefones\SvcTipoTelefone.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SvcTipoTelefone\SvcTipoTelefone1.xsd">
+    <None Include="Service References\SvcTipoTelefones\SvcTipoTelefone1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SvcTipoTelefone\SvcTipoTelefone2.xsd">
+    <None Include="Service References\SvcTipoTelefones\SvcTipoTelefone2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SvcTipoTelefone\SvcTipoTelefone3.xsd">
+    <None Include="Service References\SvcTipoTelefones\SvcTipoTelefone3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Web References\WebSvcTipoTelefone\Entity.datasource">
@@ -168,24 +168,6 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\SvcTipoTelefone\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SvcTipoTelefone\SvcTipoTelefone.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SvcTipoTelefone\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SvcTipoTelefone\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SvcTipoTelefone\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <WebReferenceUrl Include="http://localhost:2288/Services/SvcTipoTelefone.svc">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WebSvcTipoTelefone\</RelPath>
@@ -200,6 +182,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\WebSvcTipoTelefone\SvcTipoTelefone.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\SvcTipoTelefones\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SvcTipoTelefones\SvcTipoTelefone.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SvcTipoTelefones\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SvcTipoTelefones\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SvcTipoTelefones\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

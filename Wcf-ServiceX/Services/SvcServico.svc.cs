@@ -1,8 +1,4 @@
-﻿using System;
-using Infraestrutura;
-using Model;
-using Repositorio.Generic.Utils;
-using Wcf_ServiceX.Interface;
+﻿using Model;
 using Repositorio;
 using Wcf_ServiceX.Generic;
 

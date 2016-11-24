@@ -19,8 +19,11 @@ namespace Wcf_ServiceX.Generic
     //        [KnownTypeAttribute(typeof(TipoTelefone))]
     //        [KnownType(typeof(TipoTelefone))]
     [ServiceKnownType(typeof(TipoTelefone))]
-    public abstract class GenericService<TRep> : IGenericService<TRep>
+    //public abstract class GenericService<TRep> : IGenericService<TRep>
+    //    where TRep : IRepository
+    public abstract class GenericService<TRep,TEntity> : IGenericService<TRep,TEntity>
         where TRep : IRepository
+        where TEntity : Entity
     {
         [DataMember]
         public IRepository<Entity, int> _repo;
@@ -45,16 +48,6 @@ namespace Wcf_ServiceX.Generic
 
             _repo.InitializeRepository();
         }
-
-        [DurableOperation(CompletesInstance = true)]
-        public void Complete()
-        {
-            _repo.GetUnitOfWork().Commit();
-            //TipoTelefoneRepository.Instance.RepUnitOfWork.Commit();
-            //_unitofwork.Commit();
-            _repo.Dispose();
-        }
-
 
         //[DurableOperation()]
         //public void AddObjectSerialize(Entity _entity)
@@ -81,54 +74,78 @@ namespace Wcf_ServiceX.Generic
         //    this.entity = _entity;
         //}
 
+        //[DurableOperation()]
+        //public void SalvarEntities()
+        //{
+        //    _repo.Salvar(this.EntitiesUpdate);
+        //}
+
+        //[DurableOperation()]
+        //public void Salvar(Entity cls)
+        //{
+        //    _repo.Salvar(cls);
+
+        //}
+
+        //[DurableOperation()]
+        //public void AdicionarEntity(Entity cls)
+        //{
+        //    _repo.Adicionar(cls);
+
+        //}
+
+        //[DurableOperation()]
+        //public void Adicionar()
+        //{
+        //    _repo.Adicionar(entity);
+        //}
+
+        //[DurableOperation()]
+        //public void Remover(Entity cls)
+        //{
+        //    _repo.Remover(cls);
+
+        //}
+
+        //[DurableOperation()]
+        //public void RemoverEntities()
+        //{
+        //   // _repo.Remover(this.entities);
+
+        //}
+
         [DurableOperation()]
-        public void SalvarEntities()
+        public void Add(TEntity param)
         {
-            _repo.Salvar(this.EntitiesUpdate);
+            AddEntity(param);
         }
 
         [DurableOperation()]
-        public void Salvar(Entity cls)
+        public void Update(TEntity param)
         {
-            _repo.Salvar(cls);
-
+            AddUpdateEntity(param);
         }
 
         [DurableOperation()]
-        public void AdicionarEntity(Entity cls)
+        public void Remove(TEntity param)
         {
-            _repo.Adicionar(cls);
-
+            AddRemoveEntity(param);
         }
 
-        [DurableOperation()]
-        public void Adicionar()
+        //[DurableOperation()]
+        //public PaginatedList<TEntity> Paginate(int pageIndex, int pageSize)
+        //{
+        //    return _repo.Paginate(pageIndex, pageSize);
+        //}
+
+        [DurableOperation(CompletesInstance = true)]
+        public void Complete()
         {
-            _repo.Adicionar(entity);
-        }
-
-       
-
-
-
-        [DurableOperation()]
-        public void Remover(Entity cls)
-        {
-            _repo.Remover(cls);
-
-        }
-
-        [DurableOperation()]
-        public void RemoverEntities()
-        {
-           // _repo.Remover(this.entities);
-
-        }
-
-        [DurableOperation()]
-        public PaginatedList<Entity> Paginate(int pageIndex, int pageSize)
-        {
-            return _repo.Paginate(pageIndex, pageSize);
+            AddEntities();
+            RemoveEntities();
+            SaveEntities();
+            _repo.GetUnitOfWork().Commit();
+            _repo.Dispose();
         }
 
 
@@ -141,12 +158,12 @@ namespace Wcf_ServiceX.Generic
 
         internal void RemoveEntities()
         {
-            _repo.Remover(this.EntitiesAdd);
+            _repo.Remover(this.EntitiesRemove);
         }
 
         internal void SaveEntities()
         {
-            _repo.Salvar(this.EntitiesAdd);
+            _repo.Salvar(this.EntitiesUpdate);
         }
 
         internal void AddEntity(Entity entity)
