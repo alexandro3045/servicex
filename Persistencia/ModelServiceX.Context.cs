@@ -20,7 +20,11 @@ namespace Model
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //throw new UnintentionalCodeFirstException();
+            //base.OnModelCreating(modelBuilder);
+            //var tipoTelefone = modelBuilder.Entity<TipoTelefone>();
+            //tipoTelefone.Property(p => p.ConcurrencyToken)
+            //    .HasColumnType("timestamp")
+            //    .IsConcurrencyToken().
         }
     
         public virtual DbSet<Agendamento> Agendamentoes { get; set; }

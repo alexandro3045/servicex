@@ -10,9 +10,9 @@ namespace Wcf_ServiceX.Generic
     [ServiceContract]
     public interface IGenericService<TRep, TEntity>
     {
-        //[OperationContract]
-        //[EfDataContractSerializer]
-        //void Initialize<TRep>();
+        [OperationContract]
+        [EfDataContractSerializer]
+        void Initialize();
 
         [OperationContract]
         [EfDataContractSerializer]

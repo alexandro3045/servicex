@@ -13,7 +13,7 @@ using Wcf_ServiceX.Generic;
 namespace Wcf_ServiceX.Services
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "ISvcTipoTelefone" in both code and config file together.
-    [ServiceContract]
+    [ServiceContract(Namespace = "https://Wcf-ServiceX/services/TipoTelefone/")]
     public interface ISvcTipoTelefone : IGenericService<TipoTelefoneRepository,TipoTelefone>
     {
 

@@ -12,135 +12,74 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd2" namespace="DATACONTRACTS" />
-      <xsd:import schemaLocation="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Model" />
+      <xsd:import schemaLocation="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Model" />
+      <xsd:import schemaLocation="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd3" namespace="DATACONTRACTS" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="ISvcTipoTelefone_Initialize_InputMessage">
+    <wsdl:part name="parameters" element="tns:Initialize" />
+  </wsdl:message>
+  <wsdl:message name="ISvcTipoTelefone_Initialize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InitializeResponse" />
+  </wsdl:message>
   <wsdl:message name="ISvcTipoTelefone_Complete_InputMessage">
     <wsdl:part name="parameters" element="tns:Complete" />
   </wsdl:message>
   <wsdl:message name="ISvcTipoTelefone_Complete_OutputMessage">
     <wsdl:part name="parameters" element="tns:CompleteResponse" />
   </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_Salvar_InputMessage">
-    <wsdl:part name="parameters" element="tns:Salvar" />
+  <wsdl:message name="ISvcTipoTelefone_Add_InputMessage">
+    <wsdl:part name="parameters" element="tns:Add" />
   </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_Salvar_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SalvarResponse" />
+  <wsdl:message name="ISvcTipoTelefone_Add_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddResponse" />
   </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_SalvarEntities_InputMessage">
-    <wsdl:part name="parameters" element="tns:SalvarEntities" />
+  <wsdl:message name="ISvcTipoTelefone_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
   </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_SalvarEntities_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SalvarEntitiesResponse" />
+  <wsdl:message name="ISvcTipoTelefone_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
   </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_AdicionarEntity_InputMessage">
-    <wsdl:part name="parameters" element="tns:AdicionarEntity" />
+  <wsdl:message name="ISvcTipoTelefone_Remove_InputMessage">
+    <wsdl:part name="parameters" element="tns:Remove" />
   </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_AdicionarEntity_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AdicionarEntityResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_Adicionar_InputMessage">
-    <wsdl:part name="parameters" element="tns:Adicionar" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_Adicionar_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AdicionarResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_AddEntities_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddEntities" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_AddEntities_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddEntitiesResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_Remover_InputMessage">
-    <wsdl:part name="parameters" element="tns:Remover" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_Remover_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RemoverResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_RemoverEntities_InputMessage">
-    <wsdl:part name="parameters" element="tns:RemoverEntities" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_RemoverEntities_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RemoverEntitiesResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_Paginate_InputMessage">
-    <wsdl:part name="parameters" element="tns:Paginate" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_Paginate_OutputMessage">
-    <wsdl:part name="parameters" element="tns:PaginateResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_SetAdd_InputMessage">
-    <wsdl:part name="parameters" element="tns:SetAdd" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_SetAdd_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SetAddResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_SetUpdate_InputMessage">
-    <wsdl:part name="parameters" element="tns:SetUpdate" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_SetUpdate_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SetUpdateResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_SetRemove_InputMessage">
-    <wsdl:part name="parameters" element="tns:SetRemove" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_SetRemove_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SetRemoveResponse" />
+  <wsdl:message name="ISvcTipoTelefone_Remove_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveResponse" />
   </wsdl:message>
   <wsdl:portType name="ISvcTipoTelefone">
+    <wsdl:operation name="Initialize">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Initialize" message="tns:ISvcTipoTelefone_Initialize_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/InitializeResponse" message="tns:ISvcTipoTelefone_Initialize_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Complete">
       <wsdl:input wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Complete" message="tns:ISvcTipoTelefone_Complete_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/CompleteResponse" message="tns:ISvcTipoTelefone_Complete_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Salvar">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Salvar" message="tns:ISvcTipoTelefone_Salvar_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/SalvarResponse" message="tns:ISvcTipoTelefone_Salvar_OutputMessage" />
+    <wsdl:operation name="Add">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Add" message="tns:ISvcTipoTelefone_Add_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/AddResponse" message="tns:ISvcTipoTelefone_Add_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SalvarEntities">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/SalvarEntities" message="tns:ISvcTipoTelefone_SalvarEntities_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/SalvarEntitiesResponse" message="tns:ISvcTipoTelefone_SalvarEntities_OutputMessage" />
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Update" message="tns:ISvcTipoTelefone_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/UpdateResponse" message="tns:ISvcTipoTelefone_Update_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AdicionarEntity">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/AdicionarEntity" message="tns:ISvcTipoTelefone_AdicionarEntity_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/AdicionarEntityResponse" message="tns:ISvcTipoTelefone_AdicionarEntity_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Adicionar">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Adicionar" message="tns:ISvcTipoTelefone_Adicionar_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/AdicionarResponse" message="tns:ISvcTipoTelefone_Adicionar_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddEntities">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/AddEntities" message="tns:ISvcTipoTelefone_AddEntities_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/AddEntitiesResponse" message="tns:ISvcTipoTelefone_AddEntities_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Remover">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Remover" message="tns:ISvcTipoTelefone_Remover_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/RemoverResponse" message="tns:ISvcTipoTelefone_Remover_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RemoverEntities">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/RemoverEntities" message="tns:ISvcTipoTelefone_RemoverEntities_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/RemoverEntitiesResponse" message="tns:ISvcTipoTelefone_RemoverEntities_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Paginate">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Paginate" message="tns:ISvcTipoTelefone_Paginate_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/PaginateResponse" message="tns:ISvcTipoTelefone_Paginate_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="SetAdd">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISvcTipoTelefone/SetAdd" message="tns:ISvcTipoTelefone_SetAdd_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISvcTipoTelefone/SetAddResponse" message="tns:ISvcTipoTelefone_SetAdd_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="SetUpdate">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISvcTipoTelefone/SetUpdate" message="tns:ISvcTipoTelefone_SetUpdate_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISvcTipoTelefone/SetUpdateResponse" message="tns:ISvcTipoTelefone_SetUpdate_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="SetRemove">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISvcTipoTelefone/SetRemove" message="tns:ISvcTipoTelefone_SetRemove_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISvcTipoTelefone/SetRemoveResponse" message="tns:ISvcTipoTelefone_SetRemove_OutputMessage" />
+    <wsdl:operation name="Remove">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Remove" message="tns:ISvcTipoTelefone_Remove_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/RemoveResponse" message="tns:ISvcTipoTelefone_Remove_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpContextBinding_ISvcTipoTelefone" type="tns:ISvcTipoTelefone">
     <wsp:PolicyReference URI="#WSHttpContextBinding_ISvcTipoTelefone_policy" />
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Initialize">
+      <soap12:operation soapAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Initialize" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Complete">
       <soap12:operation soapAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Complete" style="document" />
       <wsdl:input>
@@ -150,8 +89,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Salvar">
-      <soap12:operation soapAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Salvar" style="document" />
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Add" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -159,8 +98,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SalvarEntities">
-      <soap12:operation soapAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/SalvarEntities" style="document" />
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Update" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -168,80 +107,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AdicionarEntity">
-      <soap12:operation soapAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/AdicionarEntity" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Adicionar">
-      <soap12:operation soapAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Adicionar" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddEntities">
-      <soap12:operation soapAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/AddEntities" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Remover">
-      <soap12:operation soapAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Remover" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RemoverEntities">
-      <soap12:operation soapAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/RemoverEntities" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Paginate">
-      <soap12:operation soapAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Paginate" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SetAdd">
-      <soap12:operation soapAction="http://tempuri.org/ISvcTipoTelefone/SetAdd" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SetUpdate">
-      <soap12:operation soapAction="http://tempuri.org/ISvcTipoTelefone/SetUpdate" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SetRemove">
-      <soap12:operation soapAction="http://tempuri.org/ISvcTipoTelefone/SetRemove" style="document" />
+    <wsdl:operation name="Remove">
+      <soap12:operation soapAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Remove" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

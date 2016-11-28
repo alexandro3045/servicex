@@ -18,7 +18,7 @@ namespace Wcf_ServiceX.Generic
     //KnownTypeAttribute
     //        [KnownTypeAttribute(typeof(TipoTelefone))]
     //        [KnownType(typeof(TipoTelefone))]
-    [ServiceKnownType(typeof(TipoTelefone))]
+    //[ServiceKnownType(typeof(TipoTelefone))]
     //public abstract class GenericService<TRep> : IGenericService<TRep>
     //    where TRep : IRepository
     public abstract class GenericService<TRep,TEntity> : IGenericService<TRep,TEntity>
@@ -44,9 +44,24 @@ namespace Wcf_ServiceX.Generic
         internal void Initialize(TRep rep)
         {
             if(_repo == null)
-                _repo = rep; 
+                _repo = rep;
+
+            EntitiesAdd = new List<Entity>();
+            EntitiesRemove = new List<Entity>();
+            EntitiesUpdate = new List<Entity>();
 
             _repo.InitializeRepository();
+        }
+
+        public void Initialize()
+        {
+
+
+            EntitiesAdd = new List<Entity>();
+            EntitiesRemove = new List<Entity>();
+            EntitiesUpdate = new List<Entity>();
+
+            Repository<TEntity, int>.Instance.InitializeRepository();
         }
 
         //[DurableOperation()]
@@ -144,8 +159,10 @@ namespace Wcf_ServiceX.Generic
             AddEntities();
             RemoveEntities();
             SaveEntities();
-            _repo.GetUnitOfWork().Commit();
-            _repo.Dispose();
+            Repository<TEntity, int>.Instance.RepUnitOfWork.Commit();
+            Repository<TEntity, int>.Instance.Dispose();
+            //_repo.GetUnitOfWork().Commit();
+            //_repo.Dispose();
         }
 
 
@@ -153,7 +170,8 @@ namespace Wcf_ServiceX.Generic
 
         internal void AddEntities()
         {
-            _repo.Adicionar(this.EntitiesAdd);
+            Repository<TEntity, int>.Instance.Adicionar(this.EntitiesAdd);
+            //_repo.Adicionar(this.EntitiesAdd);
         }
 
         internal void RemoveEntities()

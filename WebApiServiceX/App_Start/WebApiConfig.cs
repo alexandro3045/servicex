@@ -1,31 +1,37 @@
-﻿using System.Web.Http;
+﻿using Newtonsoft.Json.Serialization;
+using System.Linq;
+using System.Net.Http.Formatting;
+using System.Web.Http;
+using System.Web.Http.Dispatcher;
+using WebApiServiceX.Services;
 
 namespace WebApiServiceX.App_Start
 {
     public class WebApiConfig
     {
-        public static void Configure(HttpConfiguration config)
+        public static void Register(HttpConfiguration config)
         {
-   
-           // Web API configuration and services
-           // Configure Web API to use only bearer token authentication.
-           //config.SuppressHostPrincipal();//.SuppressDefaultHostAuthentication();
-           //config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
-            
 
-           // Web API routes
-           config.MapHttpAttributeRoutes();
-            
-           var json = config.Formatters.JsonFormatter;
-                     json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
-                     config.Formatters.Remove(config.Formatters.XmlFormatter);
-            
-           config.Routes.MapHttpRoute(
-                   name: "DefaultApi",
-                   routeTemplate: "api/{controller}/{id}",
-                   defaults: new { id = RouteParameter.Optional }
-            );
+            config.Routes.MapHttpRoute(
+                 name: "TipoTelefones",
+                 routeTemplate: "api/tipotelefones/{userName}",
+                 defaults: new { controller = "TipoTelefone", userName = RouteParameter.Optional }
+             );
+
+            var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
+            jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            //Replace the controller configuration selector
+            config.Services.Replace(typeof(IHttpControllerSelector), new TipoTelefoneControllerSelector((config)));
+
+#if !DEBUG
+            //force HTTPs
+            config.Filters.Add(new ForceHttpsAttribute());
+#endif
+
+
         }
-
+     
     }
+
 }

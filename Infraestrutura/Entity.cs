@@ -14,8 +14,8 @@ namespace Infraestrutura
         [DataMember]
         public virtual TId cod { get; protected set; }
 
-        //[DataMember]
-        //public virtual byte[] ConcurrencyToken { get; set; }
+        [DataMember]
+        public virtual byte[] ConcurrencyToken { get; set; }
     }
 
     [Serializable]

@@ -133,6 +133,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Interface\" />
+    <Folder Include="Security\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

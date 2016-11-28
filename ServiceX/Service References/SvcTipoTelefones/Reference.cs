@@ -15,81 +15,27 @@ namespace ServiceX.SvcTipoTelefones {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SvcTipoTelefones.ISvcTipoTelefone")]
     public interface ISvcTipoTelefone {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Initiali" +
+            "ze", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Initiali" +
+            "zeResponse")]
+        void Initialize();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Complete" +
             "", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Complete" +
             "Response")]
         void Complete();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Salvar", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/SalvarRe" +
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Add", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/AddRespo" +
+            "nse")]
+        void Add(Model.TipoTelefone param);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Update", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/UpdateRe" +
             "sponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.TipoTelefone))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.TelsClients))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.Cliente))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.Agendamento))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.Profissional))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.Especialidade))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.Servico))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.TelsProfissionals))]
-        void Salvar(Infraestrutura.Entity cls);
+        void Update(Model.TipoTelefone param);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/SalvarEn" +
-            "tities", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/SalvarEn" +
-            "titiesResponse")]
-        void SalvarEntities();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Adiciona" +
-            "rEntity", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Adiciona" +
-            "rEntityResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.TipoTelefone))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.TelsClients))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.Cliente))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.Agendamento))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.Profissional))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.Especialidade))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.Servico))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.TelsProfissionals))]
-        void AdicionarEntity(Infraestrutura.Entity cls);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Adiciona" +
-            "r", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Adiciona" +
-            "rResponse")]
-        void Adicionar();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/AddEntit" +
-            "ies", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/AddEntit" +
-            "iesResponse")]
-        void AddEntities(Model.TipoTelefone clas);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Remover", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/RemoverR" +
-            "esponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.TipoTelefone))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.TelsClients))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.Cliente))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.Agendamento))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.Profissional))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.Especialidade))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.Servico))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Model.TelsProfissionals))]
-        void Remover(Infraestrutura.Entity cls);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/RemoverE" +
-            "ntities", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/RemoverE" +
-            "ntitiesResponse")]
-        void RemoverEntities();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Paginate" +
-            "", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Paginate" +
-            "Response")]
-        Infraestrutura.Entity[] Paginate(int pageIndex, int pageSize);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISvcTipoTelefone/SetAdd", ReplyAction="http://tempuri.org/ISvcTipoTelefone/SetAddResponse")]
-        void SetAdd(Model.TipoTelefone param);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISvcTipoTelefone/SetUpdate", ReplyAction="http://tempuri.org/ISvcTipoTelefone/SetUpdateResponse")]
-        void SetUpdate(Model.TipoTelefone param);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISvcTipoTelefone/SetRemove", ReplyAction="http://tempuri.org/ISvcTipoTelefone/SetRemoveResponse")]
-        void SetRemove(Model.TipoTelefone param);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Remove", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/RemoveRe" +
+            "sponse")]
+        void Remove(Model.TipoTelefone param);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -119,52 +65,24 @@ namespace ServiceX.SvcTipoTelefones {
                 base(binding, remoteAddress) {
         }
         
+        public void Initialize() {
+            base.Channel.Initialize();
+        }
+        
         public void Complete() {
             base.Channel.Complete();
         }
         
-        public void Salvar(Infraestrutura.Entity cls) {
-            base.Channel.Salvar(cls);
+        public void Add(Model.TipoTelefone param) {
+            base.Channel.Add(param);
         }
         
-        public void SalvarEntities() {
-            base.Channel.SalvarEntities();
+        public void Update(Model.TipoTelefone param) {
+            base.Channel.Update(param);
         }
         
-        public void AdicionarEntity(Infraestrutura.Entity cls) {
-            base.Channel.AdicionarEntity(cls);
-        }
-        
-        public void Adicionar() {
-            base.Channel.Adicionar();
-        }
-        
-        public void AddEntities(Model.TipoTelefone clas) {
-            base.Channel.AddEntities(clas);
-        }
-        
-        public void Remover(Infraestrutura.Entity cls) {
-            base.Channel.Remover(cls);
-        }
-        
-        public void RemoverEntities() {
-            base.Channel.RemoverEntities();
-        }
-        
-        public Infraestrutura.Entity[] Paginate(int pageIndex, int pageSize) {
-            return base.Channel.Paginate(pageIndex, pageSize);
-        }
-        
-        public void SetAdd(Model.TipoTelefone param) {
-            base.Channel.SetAdd(param);
-        }
-        
-        public void SetUpdate(Model.TipoTelefone param) {
-            base.Channel.SetUpdate(param);
-        }
-        
-        public void SetRemove(Model.TipoTelefone param) {
-            base.Channel.SetRemove(param);
+        public void Remove(Model.TipoTelefone param) {
+            base.Channel.Remove(param);
         }
     }
 }

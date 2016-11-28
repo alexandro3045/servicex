@@ -21,12 +21,12 @@
     <MetadataSource Address="http://localhost:2288/Services/SvcTipoTelefone.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="SvcTipoTelefone3.xsd" MetadataType="Schema" ID="5345a1ac-614e-4210-8933-7745ec21f529" SourceId="1" SourceUrl="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd2" />
     <MetadataFile FileName="SvcTipoTelefone.xsd" MetadataType="Schema" ID="582427d1-6d8e-4865-8268-ce85f76a72e6" SourceId="1" SourceUrl="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd1" />
     <MetadataFile FileName="SvcTipoTelefone1.xsd" MetadataType="Schema" ID="96069e7d-4dad-4a00-b5ae-289b2e185f9d" SourceId="1" SourceUrl="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd0" />
     <MetadataFile FileName="SvcTipoTelefone.disco" MetadataType="Disco" ID="d6cc1025-9786-4c77-8649-3c3093bca4f2" SourceId="1" SourceUrl="http://localhost:2288/Services/SvcTipoTelefone.svc?disco" />
     <MetadataFile FileName="SvcTipoTelefone2.xsd" MetadataType="Schema" ID="111bc952-74fe-416f-9d46-e1b2e0b26296" SourceId="1" SourceUrl="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd3" />
     <MetadataFile FileName="SvcTipoTelefone.wsdl" MetadataType="Wsdl" ID="38a07092-b2e6-4c4a-830f-27350b9cc38c" SourceId="1" SourceUrl="http://localhost:2288/Services/SvcTipoTelefone.svc?wsdl" />
-    <MetadataFile FileName="SvcTipoTelefone3.xsd" MetadataType="Schema" ID="5345a1ac-614e-4210-8933-7745ec21f529" SourceId="1" SourceUrl="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -51,9 +51,10 @@ namespace ServiceX
 
                 using (var service = new SvcTipoTelefones.SvcTipoTelefoneClient())
                 {
-                    service.AddEntities(tp);
-                    service.AddEntities(tp1);
-                    service.AddEntities(tp2);
+                    service.Initialize();
+                    service.Add(tp);
+                    service.Add(tp1);
+                    service.Add(tp2);
                     service.Complete();
                 }
 
