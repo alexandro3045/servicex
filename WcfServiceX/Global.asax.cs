@@ -1,25 +1,15 @@
-﻿using Ninject.Extensions.Wcf;
-using System;
-using Ninject;
-using wcf_ninject.DI;
-using Ninject.Web.Common;
-using Repositorio;
-using Model;
+﻿//using Ninject;
+//using Ninject.Extensions.Wcf;
+//using wcf_ninject.DI;
 
-namespace WcfServiceX
-{
-    public class Global : NinjectWcfApplication
-    {
-        protected override IKernel CreateKernel()
-        {
-            IKernel kernel = new StandardKernel();
-
-            // Vendor Briefs. 
-            kernel.Bind<TipoTelefoneRepository<TipoTelefone,int>>();//.To<TipoTelefoneRepository>().InRequestScope();
-           // kernel.Bind<IRepository<TipoTelefone>>().To<TipoTelefoneRepository>().InRequestScope();
-
-            return kernel;
-
-        }
-    }
-}
+//namespace Wcf_ServiceX
+//{
+//    public class Global : NinjectWcfApplication
+//    {
+//        protected override IKernel CreateKernel()
+//        {
+//            var kernel = new StandardKernel(new WCFNinjectModule());
+//            return kernel;
+//        }
+//    }
+//}

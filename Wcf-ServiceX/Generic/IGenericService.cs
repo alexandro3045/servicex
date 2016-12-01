@@ -1,6 +1,4 @@
 ﻿using Infraestrutura;
-using Model;
-using Repositorio;
 using Repositorio.Generic.Utils;
 using System.ServiceModel;
 using Wcf_ServiceX.Decorator;
@@ -11,11 +9,11 @@ namespace Wcf_ServiceX.Generic
     public interface IGenericService<TRep, TEntity>
     {
         [OperationContract]
-        [EfDataContractSerializer]
+       // [EfDataContractSerializer]
         void Initialize();
 
         [OperationContract]
-        [EfDataContractSerializer]
+        //[EfDataContractSerializer]
         void Complete();
 
         //[OperationContract]
@@ -39,39 +37,23 @@ namespace Wcf_ServiceX.Generic
         //void SalvarEntities();
 
         [OperationContract]
-        [EfDataContractSerializer]
+        //[EfDataContractSerializer]
         void Add(TEntity param);
 
         [OperationContract]
-        [EfDataContractSerializer]
+        //[EfDataContractSerializer]
         void Update(TEntity param);
 
         [OperationContract]
-        [EfDataContractSerializer]
+        //[EfDataContractSerializer]
         void Remove(TEntity param);
 
-        //[OperationContract]
-        //[EfDataContractSerializer]
-        //PaginatedList<TEntity> Paginate(int pageIndex, int pageSize);
+        [OperationContract]
+        [EfDataContractSerializer]
+        //[ReferencePreservingDataContractFormat]
+        Entity[] Paginate(int pageIndex, int pageSize);
 
-
-
-        //[OperationContract]
-        //[EfDataContractSerializer]
-        //void Adicionar();
-
-        //[OperationContract]
-        //[EfDataContractSerializer]
-        //void AddEntities(TEntity clas);
-
-        //[OperationContract]
-        //[EfDataContractSerializer]
-        //void Remover(Entity cls);
-
-        //[OperationContract]
-        //[EfDataContractSerializer]
-        //void RemoverEntities();
-
+        
 
     }
 }

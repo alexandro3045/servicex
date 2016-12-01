@@ -28,6 +28,7 @@ namespace WebApiServiceX.Web.Services
             var routeData = request.GetRouteData();
 
             var controllerName = routeData.Values["controller"].ToString();
+            //routeData.Values["controller"].ToString();
 
             HttpControllerDescriptor controllerDescriptor;
 

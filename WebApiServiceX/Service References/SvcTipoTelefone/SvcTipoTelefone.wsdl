@@ -1,75 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="https://Wcf-ServiceX/services/TipoTelefone/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://tempuri.org/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SvcTipoTelefone" targetNamespace="https://Wcf-ServiceX/services/TipoTelefone/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
-  <wsdl:import namespace="http://tempuri.org/" location="http://localhost:2288/Services/SvcTipoTelefone.svc?wsdl=wsdl0" />
-  <wsdl:types>
-    <xsd:schema targetNamespace="https://Wcf-ServiceX/services/TipoTelefone/Imports">
-      <xsd:import schemaLocation="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Model" />
-      <xsd:import schemaLocation="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd3" namespace="DATACONTRACTS" />
-    </xsd:schema>
-  </wsdl:types>
-  <wsdl:message name="ISvcTipoTelefone_Initialize_InputMessage">
-    <wsdl:part name="parameters" element="i0:Initialize" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_Initialize_OutputMessage">
-    <wsdl:part name="parameters" element="i0:InitializeResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_Complete_InputMessage">
-    <wsdl:part name="parameters" element="i0:Complete" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_Complete_OutputMessage">
-    <wsdl:part name="parameters" element="i0:CompleteResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_Add_InputMessage">
-    <wsdl:part name="parameters" element="i0:Add" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_Add_OutputMessage">
-    <wsdl:part name="parameters" element="i0:AddResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_Update_InputMessage">
-    <wsdl:part name="parameters" element="i0:Update" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_Update_OutputMessage">
-    <wsdl:part name="parameters" element="i0:UpdateResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_Remove_InputMessage">
-    <wsdl:part name="parameters" element="i0:Remove" />
-  </wsdl:message>
-  <wsdl:message name="ISvcTipoTelefone_Remove_OutputMessage">
-    <wsdl:part name="parameters" element="i0:RemoveResponse" />
-  </wsdl:message>
-  <wsdl:portType name="ISvcTipoTelefone">
-    <wsdl:operation name="Initialize">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Initialize" message="tns:ISvcTipoTelefone_Initialize_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/InitializeResponse" message="tns:ISvcTipoTelefone_Initialize_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Complete">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Complete" message="tns:ISvcTipoTelefone_Complete_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/CompleteResponse" message="tns:ISvcTipoTelefone_Complete_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Add">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Add" message="tns:ISvcTipoTelefone_Add_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/AddResponse" message="tns:ISvcTipoTelefone_Add_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Update">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Update" message="tns:ISvcTipoTelefone_Update_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/UpdateResponse" message="tns:ISvcTipoTelefone_Update_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Remove">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Remove" message="tns:ISvcTipoTelefone_Remove_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/RemoveResponse" message="tns:ISvcTipoTelefone_Remove_OutputMessage" />
-    </wsdl:operation>
-  </wsdl:portType>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="https://Wcf-ServiceX/services/SvcTipoTelefone/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://tempuri.org/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SvcTipoTelefone" targetNamespace="https://Wcf-ServiceX/services/SvcTipoTelefone/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://tempuri.org/" location="http://localhost:2288/Services/SvcTipoTelefone.svc?wsdl=wsdl1" />
+  <wsdl:types />
   <wsdl:service name="SvcTipoTelefone">
-    <wsdl:port name="WSHttpContextBinding_ISvcTipoTelefone" binding="i0:WSHttpContextBinding_ISvcTipoTelefone">
-      <soap12:address location="http://localhost:2288/Services/SvcTipoTelefone.svc" />
-      <wsa10:EndpointReference>
-        <wsa10:Address>http://localhost:2288/Services/SvcTipoTelefone.svc</wsa10:Address>
-        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Dns>localhost</Dns>
-        </Identity>
-      </wsa10:EndpointReference>
+    <wsdl:port name="BasicHttpBinding_ISvcTipoTelefone" binding="i0:BasicHttpBinding_ISvcTipoTelefone">
+      <soap:address location="http://localhost:2288/Services/SvcTipoTelefone.svc/soap" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

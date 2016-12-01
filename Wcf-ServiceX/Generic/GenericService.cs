@@ -14,7 +14,7 @@ namespace Wcf_ServiceX.Generic
 {
 
     [Serializable]
-    [DurableService()]
+    //[DurableService()]
     //KnownTypeAttribute
     //        [KnownTypeAttribute(typeof(TipoTelefone))]
     //        [KnownType(typeof(TipoTelefone))]
@@ -40,6 +40,9 @@ namespace Wcf_ServiceX.Generic
         [DataMember]
         public List<Entity> EntitiesUpdate;
 
+        //[DataMember]
+        //public PaginatedList<Entity> paginateList;
+
        // [DurableOperation(CanCreateInstance = true)]
         internal void Initialize(TRep rep)
         {
@@ -49,7 +52,7 @@ namespace Wcf_ServiceX.Generic
             EntitiesAdd = new List<Entity>();
             EntitiesRemove = new List<Entity>();
             EntitiesUpdate = new List<Entity>();
-
+            //paginateList = new PaginatedList<Entity>();
             _repo.InitializeRepository();
         }
 
@@ -64,96 +67,36 @@ namespace Wcf_ServiceX.Generic
             Repository<TEntity, int>.Instance.InitializeRepository();
         }
 
-        //[DurableOperation()]
-        //public void AddObjectSerialize(Entity _entity)
-        //{
-        //    if (this.entities == null)
-        //        this.entities = new List<Entity>();
-
-        //    entities.Add(_entity);
-        //}
-
+        
 
         //[DurableOperation()]
-        //public void AddEntities(Entity _entity)
-        //{
-        //    if (this.entities == null)
-        //        this.entities = new List<Entity>();
-
-        //    this.entities.Add(_entity);
-        //}
-
-        //[DurableOperation()]
-        //public void Set(Entity _entity)
-        //{
-        //    this.entity = _entity;
-        //}
-
-        //[DurableOperation()]
-        //public void SalvarEntities()
-        //{
-        //    _repo.Salvar(this.EntitiesUpdate);
-        //}
-
-        //[DurableOperation()]
-        //public void Salvar(Entity cls)
-        //{
-        //    _repo.Salvar(cls);
-
-        //}
-
-        //[DurableOperation()]
-        //public void AdicionarEntity(Entity cls)
-        //{
-        //    _repo.Adicionar(cls);
-
-        //}
-
-        //[DurableOperation()]
-        //public void Adicionar()
-        //{
-        //    _repo.Adicionar(entity);
-        //}
-
-        //[DurableOperation()]
-        //public void Remover(Entity cls)
-        //{
-        //    _repo.Remover(cls);
-
-        //}
-
-        //[DurableOperation()]
-        //public void RemoverEntities()
-        //{
-        //   // _repo.Remover(this.entities);
-
-        //}
-
-        [DurableOperation()]
         public void Add(TEntity param)
         {
             AddEntity(param);
         }
 
-        [DurableOperation()]
+       // [DurableOperation()]
         public void Update(TEntity param)
         {
             AddUpdateEntity(param);
         }
 
-        [DurableOperation()]
+        //[DurableOperation()]
         public void Remove(TEntity param)
         {
             AddRemoveEntity(param);
         }
 
         //[DurableOperation()]
-        //public PaginatedList<TEntity> Paginate(int pageIndex, int pageSize)
-        //{
-        //    return _repo.Paginate(pageIndex, pageSize);
-        //}
+        public Entity[] Paginate(int pageIndex, int pageSize) 
+        {
+            Entity[] array = _repo.Paginate(pageIndex, pageSize).ToArray();
 
-        [DurableOperation(CompletesInstance = true)]
+            return array;
+
+        }
+
+        //[DurableOperation(CompletesInstance = true)]
         public void Complete()
         {
             AddEntities();

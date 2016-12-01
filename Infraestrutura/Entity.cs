@@ -5,8 +5,8 @@ using System.Runtime.Serialization;
 
 namespace Infraestrutura
 {
-    [Serializable]
-    [DataContract(Namespace = DomainConstants.DataContractNamespace, IsReference = true)]
+    //[Serializable]
+    [DataContract(Name = "Entity", Namespace = DomainConstants.DataContractNamespace, IsReference = false)]
     public  class IEntity<TId>
       where TId : struct
     {
@@ -18,7 +18,7 @@ namespace Infraestrutura
         public virtual byte[] ConcurrencyToken { get; set; }
     }
 
-    [Serializable]
-    [DataContract(Namespace = DomainConstants.DataContractNamespace, IsReference = true)]
+    //[Serializable]
+    //[DataContract(Namespace = DomainConstants.DataContractNamespace, IsReference = false)]
     public class Entity : IEntity<int> { }
 }

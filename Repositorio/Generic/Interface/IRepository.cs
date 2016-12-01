@@ -50,7 +50,7 @@ namespace Repositorio
         //   Expression<Func<TEntity, bool>> where = null,
         //   Expression<Func<TEntity, object>> orderBy = null);
 
-        PaginatedList<Entity> Paginate(int pageIndex, int pageSize);
+        PaginatedList<Entity> Paginate(int pageIndex, int pageSize, string order = "cod");
 
         //TEntity GetSingle(TId id);
 

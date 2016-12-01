@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="WcfServiceX.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Wcf_ServiceX.Global" Language="C#" %>

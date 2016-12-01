@@ -1,10 +1,10 @@
 ﻿using Ninject;
-using Ninject.Extensions.Wcf;
 using wcf_ninject.DI;
+using Ninject.Web.Common;
 
 namespace Wcf_ServiceX
 {
-    public class Global : NinjectWcfApplication
+    public class Global : NinjectHttpApplication
     {
         protected override IKernel CreateKernel()
         {

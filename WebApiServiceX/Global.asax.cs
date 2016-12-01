@@ -1,11 +1,14 @@
-﻿using System;
+﻿using Microsoft.Practices.Unity;
+using System;
 using System.Diagnostics;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Unity.WebApi;
 using WebApiServiceX.App_Start;
 using WebApiServiceX.Controllers;
+using WebApiServiceX.SvcTipoTelefone;
 
 namespace WebApiServiceX
 {
@@ -16,9 +19,52 @@ namespace WebApiServiceX
         {
             AreaRegistration.RegisterAllAreas();
 
-            WebApiConfig.Register(GlobalConfiguration.Configuration);
+            //WebApiConfig.Register(GlobalConfiguration.Configuration);
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            //var container = new UnityContainer();
+            //container
+            //    .RegisterType<ISvcTipoTelefone, SvcTipoTelefoneClient>()
+            //    .Configure<InjectedMembers>()
+            //    .ConfigureInjectionFor<SvcTipoTelefoneClient>(new InjectionConstructor("*"));
+
+            //UnityDependencyResolver resolver = new Unity.WebApi.UnityDependencyResolver(container);
+
+            //DependencyResolver.SetResolver(resolver);
+
+
+            //using (IUnityContainer container = new UnityContainer())
+            //{
+            //    container.RegisterType<ISvcTipoTelefone, SvcTipoTelefoneClient>()
+            //    .Configure<InjectedMembers>()
+            //    .ConfigureInjectionFor<SvcTipoTelefoneClient>(new InjectionConstructor("*"));
+
+            //    //.RegisterType<IStockQuoteService, MoneyCentralStockQuoteService>()
+            //    //.RegisterType<ILogger, ConsoleLogger>()
+            //    //.RegisterType<ILogger, TraceSourceLogger>()
+            //    var dependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
+            //    GlobalConfiguration.Configuration.DependencyResolver = dependencyResolver;
+            //    DependencyResolver.SetResolver(dependencyResolver);
+            //}
+             
+
+        }
+
+
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            if (HttpContext.Current.Request.HttpMethod == "OPTIONS")
+            {
+                HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "POST, PUT, DELETE");
+
+                HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
+                HttpContext.Current.Response.AddHeader("Access-Control-Max-Age", "1728000");
+                HttpContext.Current.Response.End();
+            }
         }
 
         //protected void Application_Start(object sender, EventArgs e)

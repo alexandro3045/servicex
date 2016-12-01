@@ -25,6 +25,9 @@ namespace Model
             //tipoTelefone.Property(p => p.ConcurrencyToken)
             //    .HasColumnType("timestamp")
             //    .IsConcurrencyToken().
+
+            // DbContext.Configuration.ProxyCreationEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
         }
     
         public virtual DbSet<Agendamento> Agendamentoes { get; set; }

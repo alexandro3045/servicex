@@ -123,27 +123,30 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="ServiceX.svc" />
-    <Content Include="ServiceXY.svc" />
+    <Content Include="Services\SvcTipoTelefone.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Decorator\EfDataContractSerializerAttribute.cs" />
+    <Compile Include="Decorator\EfDataContractSerializerOperationBehavior.cs" />
+    <Compile Include="Decorator\EfDynamicProxyAssemblies.cs" />
+    <Compile Include="DI\WCFNinjectModule.cs" />
+    <Compile Include="Generic\GenericService.cs" />
+    <Compile Include="Generic\IGenericService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="IServiceXY.cs" />
-    <Compile Include="ServiceX.svc.cs">
-      <DependentUpon>ServiceX.svc</DependentUpon>
-    </Compile>
-    <Compile Include="IServiceX.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceXY.svc.cs">
-      <DependentUpon>ServiceXY.svc</DependentUpon>
+    <Compile Include="Services\ISvcTipoTelefone.cs" />
+    <Compile Include="Services\SvcTipoTelefone.svc.cs">
+      <DependentUpon>SvcTipoTelefone.svc</DependentUpon>
     </Compile>
     <Compile Include="WCFNinjectModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Interface\" />
+    <Folder Include="Security\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

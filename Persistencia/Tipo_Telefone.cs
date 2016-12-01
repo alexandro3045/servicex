@@ -13,7 +13,9 @@ namespace Model
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Runtime.Serialization;
 
+    [KnownType(typeof(TipoTelefone))]
     [Table("Tipo_Telefone")]
     public partial class TipoTelefone : Entity
     {
@@ -23,12 +25,15 @@ namespace Model
             this.TelsClients = new HashSet<TelsClients>();
             this.TelsProfissionals = new HashSet<TelsProfissionals>();
         }
-        
+
+        [DataMember]
         public string desc_tipo_telefone { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [DataMember]
         public virtual ICollection<TelsClients> TelsClients { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [DataMember]
         public virtual ICollection<TelsProfissionals> TelsProfissionals { get; set; }
     }
 }

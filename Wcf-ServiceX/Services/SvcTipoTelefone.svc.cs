@@ -10,7 +10,7 @@ namespace Wcf_ServiceX.Services
 {
     [System.Serializable]
     //[DurableService()]
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession,Namespace = "https://Wcf-ServiceX/services/TipoTelefone/")]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession,Namespace = "https://Wcf-ServiceX/services/SvcTipoTelefone/")]
     public class SvcTipoTelefone :  GenericService<TipoTelefoneRepository,TipoTelefone>, ISvcTipoTelefone
     {
 

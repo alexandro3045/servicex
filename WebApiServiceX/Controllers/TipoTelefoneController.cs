@@ -1,26 +1,31 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using WebApiServiceX.SvcTipoTelefone;
 
 namespace WebApiServiceX.Controllers
 {
-    [Route("ServiceX/TipoTelefones")]
+
+    //[RoutePrefix("servicex/tipotelefone")]
+
+    //[Authorize]
     public class TipoTelefoneController : ApiController
     {
-        private readonly ISvcTipoTelefone service;
-        public TipoTelefoneController(ISvcTipoTelefone _service)
+        private readonly ISvcTipoTelefone _service;
+
+        public TipoTelefoneController(SvcTipoTelefoneClient service)
         {
-            this.service = _service;
+            _service = service;// new SvcTipoTelefoneClient();
         }
 
+        //[HttpGet]
+        //[Route("tipotelefones/{Id}/orders")]
         [HttpGet]
-        public IHttpActionResult Get()
+        public IHttpActionResult GetTipoTelefones(int pageIndex =1, int pageSize = 25)
         {
-            //ServiceXYClient cliente = new ServiceXYClient();// ServiceXY(ServiceType.TipoTelefoneRepository);
-            //DeletePersistenteRequest req = new DeletePersistenteRequest();
-            //req.entidade = new object({ id = 0, nome = "a" });
-            //cliente.DeletePersistente(req);
-            return Ok(new List<int>() { 1, 2, 3 });
+            PaginateResponse re = _service.Paginate(new PaginateRequest(pageIndex, pageSize));
+            
+            return Ok(re.PaginateResult);
         }
 
     }

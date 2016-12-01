@@ -24,10 +24,5 @@ namespace Repositorio
 
 
         #endregion
-
-        PaginatedList<Entity> IRepository<Entity, int>.Paginate(int pageIndex, int pageSize)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
