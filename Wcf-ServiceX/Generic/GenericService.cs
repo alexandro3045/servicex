@@ -93,7 +93,11 @@ namespace Wcf_ServiceX.Generic
         [DurableOperation()]
         public ObjectContract<TEntity> PaginateEntity(int pageIndex, int pageSize, string orderby, bool desc)
         {
-            return new ObjectContract<TEntity>() { PaginatedList = _repo.PaginateEntity(pageIndex, pageSize, orderby, desc) };
+            var pag = _repo.PaginateEntity(pageIndex, pageSize, orderby, desc);
+
+            ObjectContract<TEntity> obj = new ObjectContract<TEntity>() { PaginatedList = pag };
+
+            return obj;
         }
 
         [DurableOperation(CompletesInstance = true)]

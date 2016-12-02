@@ -14,6 +14,11 @@ namespace Repositorio.Generic.Utils
         public int TotalCount { get; private set; }
         public int TotalPages { get; private set; }
 
+        public PaginatedList()
+        {
+
+        }
+
         public PaginatedList(IQueryable<T> source, int pageIndex, int pageSize,string orderby, bool desc)
         {
             PageIndex = pageIndex;

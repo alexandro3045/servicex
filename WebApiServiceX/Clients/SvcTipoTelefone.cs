@@ -1,5 +1,4 @@
-﻿using WebApiServiceX.Clients;
-using WebApiServiceX.Clients.ClientBase;
+﻿using WebApiServiceX.Clients.ClientBase;
 using WebApiServiceX.SvcTipoTelefone;
 
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("WebApiServiceX.Clients", ClrNamespace = "WebApiServiceX.Clients")]
@@ -86,7 +85,7 @@ namespace WebApiServiceX.Clients
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoTelefone", Namespace="WebApiServiceX.Clients", IsReference=true)]
-    public partial class TipoTelefone : WebApiServiceX.Clients.Entity
+    public partial class TipoTelefone : Entity
     {
         
         private TelsClients[] TelsClientsField;
@@ -1568,9 +1567,9 @@ public class SvcTipoTelefoneClient : System.ServiceModel.ClientBase<ServiceClien
     }
 
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    CompleteResponse ServiceClientBase.Complete(CompleteRequest request)
+    WebApiServiceX.SvcTipoTelefone.CompleteResponse ServiceClientBase.Complete(WebApiServiceX.SvcTipoTelefone.CompleteRequest request)
     {
-        return Channel.Complete(request);
+        return base.Channel.Complete(request);
     }
 
     public void Complete()
@@ -1580,7 +1579,7 @@ public class SvcTipoTelefoneClient : System.ServiceModel.ClientBase<ServiceClien
     }
 
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    AddResponse ServiceClientBase.Add(AddRequest request)
+    WebApiServiceX.SvcTipoTelefone.AddResponse ServiceClientBase.Add(WebApiServiceX.SvcTipoTelefone.AddRequest request)
     {
         return base.Channel.Add(request);
     }
@@ -1593,9 +1592,9 @@ public class SvcTipoTelefoneClient : System.ServiceModel.ClientBase<ServiceClien
     }
 
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    UpdateResponse ServiceClientBase.Update(UpdateRequest request)
+    WebApiServiceX.SvcTipoTelefone.UpdateResponse ServiceClientBase.Update(WebApiServiceX.SvcTipoTelefone.UpdateRequest request)
     {
-        return Channel.Update(request);
+        return base.Channel.Update(request);
     }
 
     public void Update(WebApiServiceX.Clients.TipoTelefone param)
@@ -1606,7 +1605,7 @@ public class SvcTipoTelefoneClient : System.ServiceModel.ClientBase<ServiceClien
     }
 
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    RemoveResponse ServiceClientBase.Remove(RemoveRequest request)
+    WebApiServiceX.SvcTipoTelefone.RemoveResponse ServiceClientBase.Remove(WebApiServiceX.SvcTipoTelefone.RemoveRequest request)
     {
         return base.Channel.Remove(request);
     }
@@ -1619,7 +1618,7 @@ public class SvcTipoTelefoneClient : System.ServiceModel.ClientBase<ServiceClien
     }
 
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    PaginateResponse ServiceClientBase.Paginate(PaginateRequest request)
+    WebApiServiceX.SvcTipoTelefone.PaginateResponse ServiceClientBase.Paginate(WebApiServiceX.SvcTipoTelefone.PaginateRequest request)
     {
         return base.Channel.Paginate(request);
     }
@@ -1634,7 +1633,7 @@ public class SvcTipoTelefoneClient : System.ServiceModel.ClientBase<ServiceClien
     }
 
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    PaginateEntityResponse ServiceClientBase.PaginateEntity(PaginateEntityRequest request)
+    WebApiServiceX.SvcTipoTelefone.PaginateEntityResponse ServiceClientBase.PaginateEntity(WebApiServiceX.SvcTipoTelefone.PaginateEntityRequest request)
     {
         return base.Channel.PaginateEntity(request);
     }

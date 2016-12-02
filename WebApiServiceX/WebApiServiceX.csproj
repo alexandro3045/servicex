@@ -380,10 +380,10 @@
     <Compile Include="Areas\RouteDebugger\RequestHelper.cs" />
     <Compile Include="Areas\RouteDebugger\RouteDebuggerAreaRegistration.cs" />
     <Compile Include="Areas\RouteDebugger\RouteDebuggerConfig.cs" />
+    <Compile Include="Clients\SvcTipoTelefone.cs" />
     <Compile Include="Controllers\ControllerBase\BaseApiController.cs" />
     <Compile Include="Controllers\ControllerBase\IBaseApiController.cs" />
     <Compile Include="Clients\ClientBase\ServiceClientBase.cs" />
-    <Compile Include="Clients\SvcTipoTelefone.cs" />
     <Compile Include="Controllers\Error\ErrorController.cs" />
     <Compile Include="Controllers\Error\ErrorPageController.cs" />
     <Compile Include="Clients\ClientBase\ServiceClientWrapper.cs" />

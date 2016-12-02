@@ -1,6 +1,8 @@
-﻿namespace WebApiServiceX.Controllers
+﻿using WebApiServiceX.Controllers.ControllerBase;
+
+namespace WebApiServiceX.Controllers
 {
-    using WebApiServiceX.Controllers.ControllerBase;
+    //using WebApiServiceX.Controllers.ControllerBase;
 
     public class TipoTelefoneController : BaseApiController<SvcTipoTelefoneClient>
     {

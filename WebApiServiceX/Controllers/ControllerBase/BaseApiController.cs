@@ -16,8 +16,16 @@ namespace WebApiServiceX.Controllers.ControllerBase
         [HttpGet]
         public IHttpActionResult Get(int pageIndex = 0, int pageSize = 25, string orderby = "cod", bool desc = false)
         {
-            PaginateEntityResponse response = _service.PaginateEntity(new PaginateEntityRequest(pageIndex, pageSize, orderby, desc));// re.PaginateEntityResult;
-            _service.Complete(new CompleteRequest());
+            //PaginateEntityResponse response = _service.PaginateEntity(new PaginateEntityRequest(pageIndex, pageSize, orderby, desc));// re.PaginateEntityResult;
+            //_service.Complete(new CompleteRequest());
+            //return Ok(response.PaginateEntityResult);
+
+            var request = new SvcTipoTelefone.PaginateEntityRequest(pageIndex, pageSize, orderby, desc);
+
+            SvcTipoTelefone.PaginateEntityResponse response = _service.PaginateEntity(request);
+
+            _service.Complete(new SvcTipoTelefone.CompleteRequest());
+
             return Ok(response.PaginateEntityResult);
         }
 
