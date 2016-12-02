@@ -10,19 +10,28 @@
 namespace Model
 {
     using Infraestrutura;
+    using System.Runtime.Serialization;
 
+    [KnownType(typeof(Agendamento))]
     public partial class Agendamento : Entity
     {
-
+        [DataMember]
         public System.DateTime data_agendamento { get; set; }
+        [DataMember]
         public System.DateTime horario_agendamento { get; set; }
+        [DataMember]
         public int cod_cliente { get; set; }
+        [DataMember]
         public int cod_profissional { get; set; }
+        [DataMember]
         public string observacoes { get; set; }
+        [DataMember]
         public int cod_servico { get; set; }
-    
+        [DataMember]
         public virtual Cliente Cliente { get; set; }
+        [DataMember]
         public virtual Profissional Profissional { get; set; }
+        [DataMember]
         public virtual Servico Servico { get; set; }
     }
 }

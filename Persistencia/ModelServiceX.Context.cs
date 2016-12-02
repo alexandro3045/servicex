@@ -16,18 +16,21 @@ namespace Model
         public SERVICEX()
             : base("SERVICEX")
         {
+            this.Configuration.ProxyCreationEnabled = false;
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);
             //var tipoTelefone = modelBuilder.Entity<TipoTelefone>();
             //tipoTelefone.Property(p => p.ConcurrencyToken)
             //    .HasColumnType("timestamp")
             //    .IsConcurrencyToken().
 
             // DbContext.Configuration.ProxyCreationEnabled = false;
-            this.Configuration.ProxyCreationEnabled = false;
+
+            
         }
     
         public virtual DbSet<Agendamento> Agendamentoes { get; set; }

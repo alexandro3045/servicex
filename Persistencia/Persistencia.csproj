@@ -132,6 +132,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{F55B2D77-3CAE-46A4-83F7-50607F595F71}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infraestrutura\Infraestrutura.csproj">
       <Project>{33676F2B-D052-48D6-9E96-EE8755FB20E4}</Project>
       <Name>Infraestrutura</Name>

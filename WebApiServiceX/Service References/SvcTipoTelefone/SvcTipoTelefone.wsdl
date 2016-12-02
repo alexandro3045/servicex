@@ -3,8 +3,14 @@
   <wsdl:import namespace="http://tempuri.org/" location="http://localhost:2288/Services/SvcTipoTelefone.svc?wsdl=wsdl1" />
   <wsdl:types />
   <wsdl:service name="SvcTipoTelefone">
-    <wsdl:port name="BasicHttpBinding_ISvcTipoTelefone" binding="i0:BasicHttpBinding_ISvcTipoTelefone">
-      <soap:address location="http://localhost:2288/Services/SvcTipoTelefone.svc/soap" />
+    <wsdl:port name="WSHttpContextBinding_ISvcTipoTelefone" binding="i0:WSHttpContextBinding_ISvcTipoTelefone">
+      <soap12:address location="http://localhost:2288/Services/SvcTipoTelefone.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:2288/Services/SvcTipoTelefone.svc</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

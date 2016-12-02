@@ -3,7 +3,7 @@ using Model;
 
 namespace Repositorio
 {
-    public class EspecialidadeRepository : Repository<Especialidade, int>, IRepository
+    public class EspecialidadeRepository : Repository<Especialidade, int>//, IRepository
     {
         #region singleton Instance
         private static EspecialidadeRepository _instance;

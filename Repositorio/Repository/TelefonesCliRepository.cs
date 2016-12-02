@@ -4,7 +4,7 @@ using Model;
 namespace Repositorio
 {
 
-    public class TelefonesCliRepository : Repository<TelsClients, int>, IRepository
+    public class TelefonesCliRepository : Repository<TelsClients, int>//, IRepository
     {
         #region singleton Instance
         private static TelefonesCliRepository _instance;

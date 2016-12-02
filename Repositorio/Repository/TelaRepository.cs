@@ -4,7 +4,7 @@ using Model;
 namespace Repositorio
 {
 
-    public class TelaRepository : Repository<Tela, int>, IRepository
+    public class TelaRepository : Repository<Tela, int>//, IRepository
     {
         #region singleton Instance
         private static TelaRepository _instance;

@@ -8,7 +8,7 @@ using System.ServiceModel;
 namespace Repositorio
 {
 
-    public class TipoTelefoneRepository : Repository<TipoTelefone, int>, IRepository
+    public class TipoTelefoneRepository : Repository<TipoTelefone, int>, ITipoTelefoneRepository,IRepository<TipoTelefone>
 
     {
         #region singleton Instance
@@ -23,6 +23,16 @@ namespace Repositorio
                 return _instance;
             }
         }
+
+        //public new PaginatedList<Entity> PaginateEntity(int pageSize, int pageIndex, string orderby = "cod", bool desc = false)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //PaginatedList<Entity> IRepository<Entity, int>.Paginate(int pageSize, int pageIndex, string orderby, bool desc)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
 
 

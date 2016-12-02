@@ -8,14 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApiServiceX.SvcTipoTelefone {
-    using System.Runtime.Serialization;
-    using System;
-    
-    
+namespace WebApiServiceX.SvcTipoTelefone
+{
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="IEntityOfint", Namespace="DATACONTRACTS", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="IEntityOfint", Namespace="servicex.com", IsReference=true)]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(WebApiServiceX.SvcTipoTelefone.Entity))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(WebApiServiceX.SvcTipoTelefone.TelsClients))]
@@ -85,7 +82,7 @@ namespace WebApiServiceX.SvcTipoTelefone {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Entity", Namespace="DATACONTRACTS", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Entity", Namespace="servicex.com", IsReference=true)]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(WebApiServiceX.SvcTipoTelefone.TelsClients))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(WebApiServiceX.SvcTipoTelefone.Cliente))]
@@ -1237,7 +1234,7 @@ namespace WebApiServiceX.SvcTipoTelefone {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TipoTelefone", Namespace="http://schemas.datacontract.org/2004/07/Model", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TipoTelefone", Namespace="servicex.com", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class TipoTelefone : WebApiServiceX.SvcTipoTelefone.Entity {
         
@@ -1290,15 +1287,55 @@ namespace WebApiServiceX.SvcTipoTelefone {
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="https://Wcf-ServiceX/services/ISvcTipoTelefone/", ConfigurationName="SvcTipoTelefone.ISvcTipoTelefone", SessionMode=System.ServiceModel.SessionMode.NotAllowed)]
-    public interface ISvcTipoTelefone {
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ObjectContractOfTipoTelefonechDCM5K5", Namespace="http://schemas.datacontract.org/2004/07/Wcf_ServiceX.Generic")]
+    [System.SerializableAttribute()]
+    public partial class ObjectContractOfTipoTelefonechDCM5K5 : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        // CODEGEN: Generating message contract since the wrapper namespace (http://tempuri.org/) of message InitializeRequest does not match the default value (https://Wcf-ServiceX/services/ISvcTipoTelefone/)
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Initiali" +
-            "ze", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Initiali" +
-            "zeResponse")]
-        WebApiServiceX.SvcTipoTelefone.InitializeResponse Initialize(WebApiServiceX.SvcTipoTelefone.InitializeRequest request);
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WebApiServiceX.SvcTipoTelefone.TipoTelefone[] PaginatedListField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WebApiServiceX.SvcTipoTelefone.TipoTelefone[] PaginatedList {
+            get {
+                return this.PaginatedListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PaginatedListField, value) != true)) {
+                    this.PaginatedListField = value;
+                    this.RaisePropertyChanged("PaginatedList");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="https://Wcf-ServiceX/services/ISvcTipoTelefone/", ConfigurationName="SvcTipoTelefone.ISvcTipoTelefone")]
+    public interface ISvcTipoTelefone 
+    {
         
         // CODEGEN: Generating message contract since the wrapper namespace (http://tempuri.org/) of message CompleteRequest does not match the default value (https://Wcf-ServiceX/services/ISvcTipoTelefone/)
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Complete" +
@@ -1310,12 +1347,12 @@ namespace WebApiServiceX.SvcTipoTelefone {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Add", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/AddRespo" +
             "nse")]
         WebApiServiceX.SvcTipoTelefone.AddResponse Add(WebApiServiceX.SvcTipoTelefone.AddRequest request);
-        
+
         // CODEGEN: Generating message contract since the wrapper namespace (http://tempuri.org/) of message UpdateRequest does not match the default value (https://Wcf-ServiceX/services/ISvcTipoTelefone/)
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Update", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/UpdateRe" +
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Update", ReplyAction = "http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/UpdateRe" +
             "sponse")]
-        WebApiServiceX.SvcTipoTelefone.UpdateResponse Update(WebApiServiceX.SvcTipoTelefone.UpdateRequest request);
-        
+        new WebApiServiceX.SvcTipoTelefone.UpdateResponse Update(WebApiServiceX.SvcTipoTelefone.UpdateRequest request);
+
         // CODEGEN: Generating message contract since the wrapper namespace (http://tempuri.org/) of message RemoveRequest does not match the default value (https://Wcf-ServiceX/services/ISvcTipoTelefone/)
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Remove", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/RemoveRe" +
             "sponse")]
@@ -1326,26 +1363,12 @@ namespace WebApiServiceX.SvcTipoTelefone {
             "", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Paginate" +
             "Response")]
         WebApiServiceX.SvcTipoTelefone.PaginateResponse Paginate(WebApiServiceX.SvcTipoTelefone.PaginateRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="Initialize", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class InitializeRequest {
         
-        public InitializeRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="InitializeResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class InitializeResponse {
-        
-        public InitializeResponse() {
-        }
+        // CODEGEN: Generating message contract since the wrapper namespace (http://tempuri.org/) of message PaginateEntityRequest does not match the default value (https://Wcf-ServiceX/services/ISvcTipoTelefone/)
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Paginate" +
+            "Entity", ReplyAction="http://tempuri.org/IGenericServiceOf_TipoTelefoneRepository_TipoTelefone/Paginate" +
+            "EntityResponse")]
+        WebApiServiceX.SvcTipoTelefone.PaginateEntityResponse PaginateEntity(WebApiServiceX.SvcTipoTelefone.PaginateEntityRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1487,97 +1510,149 @@ namespace WebApiServiceX.SvcTipoTelefone {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ISvcTipoTelefoneChannel : WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone, System.ServiceModel.IClientChannel {
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="PaginateEntity", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class PaginateEntityRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int pageIndex;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public int pageSize;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string orderby;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public bool desc;
+        
+        public PaginateEntityRequest() {
+        }
+        
+        public PaginateEntityRequest(int pageIndex, int pageSize, string orderby, bool desc) {
+            this.pageIndex = pageIndex;
+            this.pageSize = pageSize;
+            this.orderby = orderby;
+            this.desc = desc;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SvcTipoTelefoneClient : System.ServiceModel.ClientBase<WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone>, WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone {
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="PaginateEntityResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class PaginateEntityResponse {
         
-        public SvcTipoTelefoneClient() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public WebApiServiceX.SvcTipoTelefone.ObjectContractOfTipoTelefonechDCM5K5 PaginateEntityResult;
+        
+        public PaginateEntityResponse() {
         }
         
-        public SvcTipoTelefoneClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
-        }
-        
-        public SvcTipoTelefoneClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
-        }
-        
-        public SvcTipoTelefoneClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
-        }
-        
-        public SvcTipoTelefoneClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WebApiServiceX.SvcTipoTelefone.InitializeResponse WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone.Initialize(WebApiServiceX.SvcTipoTelefone.InitializeRequest request) {
-            return base.Channel.Initialize(request);
-        }
-        
-        public void Initialize() {
-            WebApiServiceX.SvcTipoTelefone.InitializeRequest inValue = new WebApiServiceX.SvcTipoTelefone.InitializeRequest();
-            WebApiServiceX.SvcTipoTelefone.InitializeResponse retVal = ((WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone)(this)).Initialize(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WebApiServiceX.SvcTipoTelefone.CompleteResponse WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone.Complete(WebApiServiceX.SvcTipoTelefone.CompleteRequest request) {
-            return base.Channel.Complete(request);
-        }
-        
-        public void Complete() {
-            WebApiServiceX.SvcTipoTelefone.CompleteRequest inValue = new WebApiServiceX.SvcTipoTelefone.CompleteRequest();
-            WebApiServiceX.SvcTipoTelefone.CompleteResponse retVal = ((WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone)(this)).Complete(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WebApiServiceX.SvcTipoTelefone.AddResponse WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone.Add(WebApiServiceX.SvcTipoTelefone.AddRequest request) {
-            return base.Channel.Add(request);
-        }
-        
-        public void Add(WebApiServiceX.SvcTipoTelefone.TipoTelefone param) {
-            WebApiServiceX.SvcTipoTelefone.AddRequest inValue = new WebApiServiceX.SvcTipoTelefone.AddRequest();
-            inValue.param = param;
-            WebApiServiceX.SvcTipoTelefone.AddResponse retVal = ((WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone)(this)).Add(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WebApiServiceX.SvcTipoTelefone.UpdateResponse WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone.Update(WebApiServiceX.SvcTipoTelefone.UpdateRequest request) {
-            return base.Channel.Update(request);
-        }
-        
-        public void Update(WebApiServiceX.SvcTipoTelefone.TipoTelefone param) {
-            WebApiServiceX.SvcTipoTelefone.UpdateRequest inValue = new WebApiServiceX.SvcTipoTelefone.UpdateRequest();
-            inValue.param = param;
-            WebApiServiceX.SvcTipoTelefone.UpdateResponse retVal = ((WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone)(this)).Update(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WebApiServiceX.SvcTipoTelefone.RemoveResponse WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone.Remove(WebApiServiceX.SvcTipoTelefone.RemoveRequest request) {
-            return base.Channel.Remove(request);
-        }
-        
-        public void Remove(WebApiServiceX.SvcTipoTelefone.TipoTelefone param) {
-            WebApiServiceX.SvcTipoTelefone.RemoveRequest inValue = new WebApiServiceX.SvcTipoTelefone.RemoveRequest();
-            inValue.param = param;
-            WebApiServiceX.SvcTipoTelefone.RemoveResponse retVal = ((WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone)(this)).Remove(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WebApiServiceX.SvcTipoTelefone.PaginateResponse WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone.Paginate(WebApiServiceX.SvcTipoTelefone.PaginateRequest request) {
-            return base.Channel.Paginate(request);
-        }
-        
-        public WebApiServiceX.SvcTipoTelefone.Entity[] Paginate(int pageIndex, int pageSize) {
-            WebApiServiceX.SvcTipoTelefone.PaginateRequest inValue = new WebApiServiceX.SvcTipoTelefone.PaginateRequest();
-            inValue.pageIndex = pageIndex;
-            inValue.pageSize = pageSize;
-            WebApiServiceX.SvcTipoTelefone.PaginateResponse retVal = ((WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone)(this)).Paginate(inValue);
-            return retVal.PaginateResult;
+        public PaginateEntityResponse(WebApiServiceX.SvcTipoTelefone.ObjectContractOfTipoTelefonechDCM5K5 PaginateEntityResult) {
+            this.PaginateEntityResult = PaginateEntityResult;
         }
     }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ISvcTipoTelefoneChannel : ISvcTipoTelefone,  System.ServiceModel.IClientChannel {
+    }
+    
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    //public class SvcTipoTelefoneClient : System.ServiceModel.ClientBase<ServiceClientBase>, ServiceClientBase
+    //{
+        
+    //    public SvcTipoTelefoneClient() {
+    //    }
+        
+    //    public SvcTipoTelefoneClient(string endpointConfigurationName) : 
+    //            base(endpointConfigurationName) {
+    //    }
+        
+    //    public SvcTipoTelefoneClient(string endpointConfigurationName, string remoteAddress) : 
+    //            base(endpointConfigurationName, remoteAddress) {
+    //    }
+        
+    //    public SvcTipoTelefoneClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+    //            base(endpointConfigurationName, remoteAddress) {
+    //    }
+        
+    //    public SvcTipoTelefoneClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+    //            base(binding, remoteAddress) {
+    //    }
+        
+    //    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    //    WebApiServiceX.SvcTipoTelefone.CompleteResponse ServiceClientBase.Complete(WebApiServiceX.SvcTipoTelefone.CompleteRequest request) {
+    //        return base.Channel.Complete(request);
+    //    }
+        
+    //    public void Complete() {
+    //        WebApiServiceX.SvcTipoTelefone.CompleteRequest inValue = new WebApiServiceX.SvcTipoTelefone.CompleteRequest();
+    //        WebApiServiceX.SvcTipoTelefone.CompleteResponse retVal = ((WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone)(this)).Complete(inValue);
+    //    }
+        
+    //    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    //    WebApiServiceX.SvcTipoTelefone.AddResponse ServiceClientBase.Add(WebApiServiceX.SvcTipoTelefone.AddRequest request) {
+    //        return base.Channel.Add(request);
+    //    }
+        
+    //    public void Add(WebApiServiceX.SvcTipoTelefone.TipoTelefone param) {
+    //        WebApiServiceX.SvcTipoTelefone.AddRequest inValue = new WebApiServiceX.SvcTipoTelefone.AddRequest();
+    //        inValue.param = param;
+    //        WebApiServiceX.SvcTipoTelefone.AddResponse retVal = ((WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone)(this)).Add(inValue);
+    //    }
+        
+    //    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    //    WebApiServiceX.SvcTipoTelefone.UpdateResponse ServiceClientBase.Update(WebApiServiceX.SvcTipoTelefone.UpdateRequest request) {
+    //        return base.Channel.Update(request);
+    //    }
+        
+    //    public void Update(WebApiServiceX.SvcTipoTelefone.TipoTelefone param) {
+    //        WebApiServiceX.SvcTipoTelefone.UpdateRequest inValue = new WebApiServiceX.SvcTipoTelefone.UpdateRequest();
+    //        inValue.param = param;
+    //        WebApiServiceX.SvcTipoTelefone.UpdateResponse retVal = ((WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone)(this)).Update(inValue);
+    //    }
+        
+    //    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    //    WebApiServiceX.SvcTipoTelefone.RemoveResponse ServiceClientBase.Remove(WebApiServiceX.SvcTipoTelefone.RemoveRequest request) {
+    //        return base.Channel.Remove(request);
+    //    }
+        
+    //    public void Remove(WebApiServiceX.SvcTipoTelefone.TipoTelefone param) {
+    //        WebApiServiceX.SvcTipoTelefone.RemoveRequest inValue = new WebApiServiceX.SvcTipoTelefone.RemoveRequest();
+    //        inValue.param = param;
+    //        WebApiServiceX.SvcTipoTelefone.RemoveResponse retVal = ((WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone)(this)).Remove(inValue);
+    //    }
+        
+    //    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    //    WebApiServiceX.SvcTipoTelefone.PaginateResponse ServiceClientBase.Paginate(WebApiServiceX.SvcTipoTelefone.PaginateRequest request) {
+    //        return base.Channel.Paginate(request);
+    //    }
+        
+    //    public WebApiServiceX.SvcTipoTelefone.Entity[] Paginate(int pageIndex, int pageSize) {
+    //        WebApiServiceX.SvcTipoTelefone.PaginateRequest inValue = new WebApiServiceX.SvcTipoTelefone.PaginateRequest();
+    //        inValue.pageIndex = pageIndex;
+    //        inValue.pageSize = pageSize;
+    //        WebApiServiceX.SvcTipoTelefone.PaginateResponse retVal = ((WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone)(this)).Paginate(inValue);
+    //        return retVal.PaginateResult;
+    //    }
+        
+    //    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    //    WebApiServiceX.SvcTipoTelefone.PaginateEntityResponse ServiceClientBase.PaginateEntity(WebApiServiceX.SvcTipoTelefone.PaginateEntityRequest request) {
+    //        return base.Channel.PaginateEntity(request);
+    //    }
+        
+    //    public WebApiServiceX.SvcTipoTelefone.ObjectContractOfTipoTelefonechDCM5K5 PaginateEntity(int pageIndex, int pageSize, string orderby, bool desc) {
+    //        WebApiServiceX.SvcTipoTelefone.PaginateEntityRequest inValue = new WebApiServiceX.SvcTipoTelefone.PaginateEntityRequest();
+    //        inValue.pageIndex = pageIndex;
+    //        inValue.pageSize = pageSize;
+    //        inValue.orderby = orderby;
+    //        inValue.desc = desc;
+    //        WebApiServiceX.SvcTipoTelefone.PaginateEntityResponse retVal = ((WebApiServiceX.SvcTipoTelefone.ISvcTipoTelefone)(this)).PaginateEntity(inValue);
+    //        return retVal.PaginateEntityResult;
+    //    }
+    //}
 }

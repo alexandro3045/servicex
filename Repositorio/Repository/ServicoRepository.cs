@@ -4,7 +4,7 @@ using Model;
 namespace Repositorio
 {
 
-    public class ServicoRepository : Repository<Servico, int>, IRepository
+    public class ServicoRepository : Repository<Servico, int>//, IRepository
     {
         #region singleton Instance
         private static ServicoRepository _instance;

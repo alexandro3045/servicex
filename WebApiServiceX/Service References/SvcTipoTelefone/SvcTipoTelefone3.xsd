@@ -1,34 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="DATACONTRACTS" elementFormDefault="qualified" targetNamespace="DATACONTRACTS" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="Entity">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd2" namespace="servicex.com" />
+  <xs:complexType name="ArrayOfTelsClients">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TelsClients" nillable="true" type="tns:TelsClients" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTelsClients" nillable="true" type="tns:ArrayOfTelsClients" />
+  <xs:complexType name="TelsClients">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:IEntityOfint">
-        <xs:sequence />
+      <xs:extension xmlns:q1="servicex.com" base="q1:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cliente" nillable="true" type="tns:Cliente" />
+          <xs:element minOccurs="0" name="DDD" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TipoTelefone" nillable="true" type="q1:TipoTelefone" />
+          <xs:element minOccurs="0" name="cod_cliente" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="cod_tipo_telefone" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="numero" nillable="true" type="xs:int" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="Entity" nillable="true" type="tns:Entity" />
-  <xs:complexType name="IEntityOfint">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="IEntityOf{0}{#}" Namespace="DATACONTRACTS" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ConcurrencyToken" nillable="true" type="xs:base64Binary" />
-      <xs:element minOccurs="0" name="cod" type="xs:int" />
-    </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
+  <xs:element name="TelsClients" nillable="true" type="tns:TelsClients" />
+  <xs:complexType name="Cliente">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="servicex.com" base="q2:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Agendamentos" nillable="true" type="tns:ArrayOfAgendamento" />
+          <xs:element minOccurs="0" name="CEP" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CPF" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TelsClients" nillable="true" type="tns:ArrayOfTelsClients" />
+          <xs:element minOccurs="0" name="bairro" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="celular" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="cidade" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="data_nascimento" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="endereco" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="estado_civil" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="numero_end" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="observacoes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="sexo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="telefone" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
-  <xs:element name="IEntityOfint" nillable="true" type="tns:IEntityOfint" />
-  <xs:complexType name="ArrayOfEntity">
+  <xs:element name="Cliente" nillable="true" type="tns:Cliente" />
+  <xs:complexType name="ArrayOfAgendamento">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Entity" nillable="true" type="tns:Entity" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Agendamento" nillable="true" type="tns:Agendamento" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfEntity" nillable="true" type="tns:ArrayOfEntity" />
+  <xs:element name="ArrayOfAgendamento" nillable="true" type="tns:ArrayOfAgendamento" />
+  <xs:complexType name="Agendamento">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="servicex.com" base="q3:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cliente" nillable="true" type="tns:Cliente" />
+          <xs:element minOccurs="0" name="Profissional" nillable="true" type="tns:Profissional" />
+          <xs:element minOccurs="0" name="Servico" nillable="true" type="tns:Servico" />
+          <xs:element minOccurs="0" name="cod_cliente" type="xs:int" />
+          <xs:element minOccurs="0" name="cod_profissional" type="xs:int" />
+          <xs:element minOccurs="0" name="cod_servico" type="xs:int" />
+          <xs:element minOccurs="0" name="data_agendamento" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="horario_agendamento" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="observacoes" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Agendamento" nillable="true" type="tns:Agendamento" />
+  <xs:complexType name="Profissional">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="servicex.com" base="q4:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Agendamentoes" nillable="true" type="tns:ArrayOfAgendamento" />
+          <xs:element minOccurs="0" name="CEP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CPF" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Especialidade" nillable="true" type="tns:Especialidade" />
+          <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Servicoes" nillable="true" type="tns:ArrayOfServico" />
+          <xs:element minOccurs="0" name="TelsProfissionals" nillable="true" type="tns:ArrayOfTelsProfissionals" />
+          <xs:element minOccurs="0" name="bairro" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="celular" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="cidade" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="cod_especialidade" type="xs:int" />
+          <xs:element minOccurs="0" name="data_nascimento" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="endereco" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="numero_end" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="observacoes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="sexo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="telefone" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Profissional" nillable="true" type="tns:Profissional" />
+  <xs:complexType name="Especialidade">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="servicex.com" base="q5:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Descricao" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Profissionals" nillable="true" type="tns:ArrayOfProfissional" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Especialidade" nillable="true" type="tns:Especialidade" />
+  <xs:complexType name="ArrayOfProfissional">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Profissional" nillable="true" type="tns:Profissional" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProfissional" nillable="true" type="tns:ArrayOfProfissional" />
+  <xs:complexType name="ArrayOfServico">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Servico" nillable="true" type="tns:Servico" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfServico" nillable="true" type="tns:ArrayOfServico" />
+  <xs:complexType name="Servico">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="servicex.com" base="q6:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Agendamentos" nillable="true" type="tns:ArrayOfAgendamento" />
+          <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Profissional" nillable="true" type="tns:Profissional" />
+          <xs:element minOccurs="0" name="TempoExecucao" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="cod_profissional" type="xs:int" />
+          <xs:element minOccurs="0" name="descricao" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="observacoes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tipoServico" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="valor" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Servico" nillable="true" type="tns:Servico" />
+  <xs:complexType name="ArrayOfTelsProfissionals">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TelsProfissionals" nillable="true" type="tns:TelsProfissionals" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTelsProfissionals" nillable="true" type="tns:ArrayOfTelsProfissionals" />
+  <xs:complexType name="TelsProfissionals">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="servicex.com" base="q7:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DDD" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Profissional" nillable="true" type="tns:Profissional" />
+          <xs:element minOccurs="0" name="TipoTelefone" nillable="true" type="q7:TipoTelefone" />
+          <xs:element minOccurs="0" name="cod_profissional" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="cod_tipo_telefone" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="numero" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TelsProfissionals" nillable="true" type="tns:TelsProfissionals" />
 </xs:schema>

@@ -8,25 +8,17 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Description;
-
+using Wcf_ServiceX.Decorator;
 
 namespace Wcf_ServiceX.Generic
 {
 
-    [Serializable]
-    //[DurableService()]
-    //KnownTypeAttribute
-    //        [KnownTypeAttribute(typeof(TipoTelefone))]
-    //        [KnownType(typeof(TipoTelefone))]
-    //[ServiceKnownType(typeof(TipoTelefone))]
-    //public abstract class GenericService<TRep> : IGenericService<TRep>
-    //    where TRep : IRepository
-    public abstract class GenericService<TRep,TEntity> : IGenericService<TRep,TEntity>
-        where TRep : IRepository
+   public abstract class GenericService<TRep,TEntity> : IGenericService<TRep, TEntity>
+        where TRep : IRepository<TEntity,int>
         where TEntity : Entity
     {
         [DataMember]
-        public IRepository<Entity, int> _repo;
+        public IRepository<TEntity,int> _repo;
 
         [DataMember]
         public Entity entity;
@@ -40,13 +32,11 @@ namespace Wcf_ServiceX.Generic
         [DataMember]
         public List<Entity> EntitiesUpdate;
 
-        //[DataMember]
-        //public PaginatedList<Entity> paginateList;
 
-       // [DurableOperation(CanCreateInstance = true)]
-        internal void Initialize(TRep rep)
+       
+        public void Initialize(TRep rep)
         {
-            if(_repo == null)
+            if (_repo == null)
                 _repo = rep;
 
             EntitiesAdd = new List<Entity>();
@@ -56,47 +46,57 @@ namespace Wcf_ServiceX.Generic
             _repo.InitializeRepository();
         }
 
-        public void Initialize()
-        {
+        //[DurableOperation(CanCreateInstance = true)]
+        //public void InitializeRepository()
+        //{
+        //    EntitiesAdd = new List<Entity>();
+        //    EntitiesRemove = new List<Entity>();
+        //    EntitiesUpdate = new List<Entity>();
+
+        //    _repo = Repository<TEntity,int>.Instance;
+        //    _repo.InitializeRepository();
+        //}
 
 
-            EntitiesAdd = new List<Entity>();
-            EntitiesRemove = new List<Entity>();
-            EntitiesUpdate = new List<Entity>();
 
-            Repository<TEntity, int>.Instance.InitializeRepository();
-        }
-
-        
-
-        //[DurableOperation()]
+        [DurableOperation()]
         public void Add(TEntity param)
         {
             AddEntity(param);
         }
 
-       // [DurableOperation()]
+        [DurableOperation()]
         public void Update(TEntity param)
         {
             AddUpdateEntity(param);
         }
 
-        //[DurableOperation()]
+        [DurableOperation()]
         public void Remove(TEntity param)
         {
             AddRemoveEntity(param);
         }
 
-        //[DurableOperation()]
-        public Entity[] Paginate(int pageIndex, int pageSize) 
+        public PaginatedList<Entity> Paginate(int pageIndex, int pageSize)
         {
-            Entity[] array = _repo.Paginate(pageIndex, pageSize).ToArray();
-
-            return array;
-
+            PaginatedList<Entity> ret = _repo.Paginate(pageIndex, pageSize);
+            return ret;
         }
 
-        //[DurableOperation(CompletesInstance = true)]
+
+        //[DurableOperation()]
+        //public PaginatedList<TEntity> PaginateEntity(int pageIndex, int pageSize, string orderby, bool desc)
+        //{
+        //    return _repo.PaginateEntity(pageIndex, pageSize, orderby, desc); 
+        //}
+
+        [DurableOperation()]
+        public ObjectContract<TEntity> PaginateEntity(int pageIndex, int pageSize, string orderby, bool desc)
+        {
+            return new ObjectContract<TEntity>() { PaginatedList = _repo.PaginateEntity(pageIndex, pageSize, orderby, desc) };
+        }
+
+        [DurableOperation(CompletesInstance = true)]
         public void Complete()
         {
             AddEntities();
@@ -150,9 +150,22 @@ namespace Wcf_ServiceX.Generic
 
             EntitiesRemove.Add(entity);
         }
-
         #endregion
+        
+    }
 
+    [DataContract]
+    public class ObjectContract<TEntity>
+        where TEntity : Entity
+    {
+        private PaginatedList<TEntity> _PaginatedList;
 
+        [DataMember]
+        public PaginatedList<TEntity> PaginatedList
+        {
+
+            get { return _PaginatedList; }
+            set { _PaginatedList = value; }
+        }
     }
 }

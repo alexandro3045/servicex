@@ -6,7 +6,7 @@ using System;
 namespace Repositorio
 {
 
-    public class UsuarioRepository : Repository<Usuario, int>, IRepository
+    public class UsuarioRepository : Repository<Usuario, int>//, IRepository
     {
         #region singleton Instance
         private static UsuarioRepository _instance;

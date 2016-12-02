@@ -14,6 +14,7 @@ namespace WebApiServiceX.App_Start
     using System.Web.Http.Filters;
     using Services;
     using SvcTipoTelefone;
+    using Controllers.ControllerBase;
 
     public static class NinjectWebCommon 
     {
@@ -63,7 +64,7 @@ namespace WebApiServiceX.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             //kernel.Bind<LearningContext>().To<LearningContext>().InRequestScope();
-            kernel.Bind<ISvcTipoTelefone>().To<SvcTipoTelefoneClient>().InRequestScope();//.ToSelf();//.To<LearningRepository>().InRequestScope();
+            kernel.Bind<IBaseApiController>().To<BaseApiController<ISvcTipoTelefone>>().InSingletonScope();//<ISvcTipoTelefone>().To<SvcTipoTelefoneClient>().InRequestScope();//.ToSelf();//.To<LearningRepository>().InRequestScope();
         }        
     }
 }

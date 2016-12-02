@@ -3,7 +3,7 @@ using Model;
 
 namespace Repositorio
 {
-    public class PerfilAcessoRepository : Repository<PerfilAcesso, int>, IRepository
+    public class PerfilAcessoRepository : Repository<PerfilAcesso, int>//, IRepository
     {
         #region singleton Instance
         private static PerfilAcessoRepository _instance;

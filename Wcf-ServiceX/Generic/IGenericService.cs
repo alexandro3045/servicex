@@ -2,40 +2,21 @@
 using Repositorio.Generic.Utils;
 using System.ServiceModel;
 using Wcf_ServiceX.Decorator;
+using Wcf_ServiceX.Decorator.JsonSerialization;
 
 namespace Wcf_ServiceX.Generic
 {
+    [JsonDataContractBehavior]
     [ServiceContract]
     public interface IGenericService<TRep, TEntity>
+        where TEntity : Entity
     {
-        [OperationContract]
-       // [EfDataContractSerializer]
-        void Initialize();
 
         [OperationContract]
         //[EfDataContractSerializer]
         void Complete();
 
-        //[OperationContract]
-        //[EfDataContractSerializer]
-        //void AddObjectSerialize(Entity _entity);
-
-        //[OperationContract]
-        //[EfDataContractSerializer]
-        //void AddEntities(Entity _entity);
-
-        //[OperationContract]
-        //[EfDataContractSerializer]
-        //void Set(Entity _entity);
-
-        //[OperationContract]
-        //[EfDataContractSerializer]
-        //void Salvar(Entity cls);
-
-        //[OperationContract]
-        //[EfDataContractSerializer]
-        //void SalvarEntities();
-
+        
         [OperationContract]
         //[EfDataContractSerializer]
         void Add(TEntity param);
@@ -49,11 +30,17 @@ namespace Wcf_ServiceX.Generic
         void Remove(TEntity param);
 
         [OperationContract]
-        [EfDataContractSerializer]
+        //[EfDataContractSerializer]
         //[ReferencePreservingDataContractFormat]
-        Entity[] Paginate(int pageIndex, int pageSize);
+        [ReferencePreservingDataContractFormatAttribute]
+        PaginatedList<Entity> Paginate(int pageIndex, int pageSize);
 
-        
+        [OperationContract]
+        //[EfDataContractSerializer]
+        //[ReferencePreservingDataContractFormat]
+        [ReferencePreservingDataContractFormatAttribute]
+        ObjectContract<TEntity> PaginateEntity(int pageIndex, int pageSize, string orderby, bool desc);
+        //PaginatedList<TEntity> PaginateEntity(int pageIndex, int pageSize, string orderby = "cod", bool desc = false);
 
     }
 }

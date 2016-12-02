@@ -14,16 +14,23 @@ namespace Model
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Runtime.Serialization;
 
+    [KnownType(typeof(TelsProfissionals))]
     [Table("Telefones_Prof")]
     public partial class TelsProfissionals : Entity
     {
+        [DataMember]
         public Nullable<int> DDD { get; set; }
+        [DataMember]
         public Nullable<int> numero { get; set; }
+        [DataMember]
         public Nullable<int> cod_tipo_telefone { get; set; }
+        [DataMember]
         public Nullable<int> cod_profissional { get; set; }
-    
+        [DataMember]
         public virtual Profissional Profissional { get; set; }
+        [DataMember]
         public virtual TipoTelefone TipoTelefone { get; set; }
     }
 }

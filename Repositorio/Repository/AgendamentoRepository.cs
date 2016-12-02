@@ -1,8 +1,11 @@
-﻿using Model;
+﻿using System;
+using Infraestrutura;
+using Model;
+using Repositorio.Generic.Utils;
 
 namespace Repositorio
 {
-    public class AgendamentoRepository : Repository<Agendamento, int>, IRepository
+    public class AgendamentoRepository : Repository<Agendamento, int>//, IRepository
     {
         #region singleton Instance
         private static AgendamentoRepository _instance;
@@ -17,6 +20,7 @@ namespace Repositorio
                 return _instance;
             }
         }
+
         #endregion
     }
 }

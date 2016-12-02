@@ -13,7 +13,9 @@ namespace Model
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Runtime.Serialization;
 
+    [KnownType(typeof(Profissional))]
     public partial class Profissional :Entity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,29 +25,48 @@ namespace Model
             this.Servicoes = new HashSet<Servico>();
             this.TelsProfissionals = new HashSet<TelsProfissionals>();
         }
-        
+        [DataMember]
         public string Nome { get; set; }
+        [DataMember]
         public string CPF { get; set; }
+        [DataMember]
         public Nullable<System.DateTime> data_nascimento { get; set; }
+        [DataMember]
         public string sexo { get; set; }
+        [DataMember]
         public string email { get; set; }
+        [DataMember]
         public int cod_especialidade { get; set; }
+        [DataMember]
         public string observacoes { get; set; }
+        [DataMember]
         public string endereco { get; set; }
+        [DataMember]
         public Nullable<int> numero_end { get; set; }
+        [DataMember]
         public string CEP { get; set; }
+        [DataMember]
         public string bairro { get; set; }
+        [DataMember]
         public string cidade { get; set; }
+        [DataMember]
         public string estado { get; set; }
+        [DataMember]
         public string telefone { get; set; }
+        [DataMember]
         public string celular { get; set; }
-    
+        [DataMember]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Agendamento> Agendamentoes { get; set; }
+        [DataMember]
         public virtual Especialidade Especialidade { get; set; }
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [DataMember]
         public virtual ICollection<Servico> Servicoes { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [DataMember]
         public virtual ICollection<TelsProfissionals> TelsProfissionals { get; set; }
     }
 }

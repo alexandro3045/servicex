@@ -1,6 +1,8 @@
-﻿namespace Repositorio.Interface
+﻿using Model;
+
+namespace Repositorio.Interface
 {
-    public interface ITipoTelefoneRepository<TipoTelefone> : IRepository
+    public interface ITipoTelefoneRepository : IRepository<TipoTelefone, int>
     {
     }
 }

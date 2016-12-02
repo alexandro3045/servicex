@@ -340,6 +340,12 @@
     <Content Include="Service References\SvcTipoTelefone\WebApiServiceX.SvcTipoTelefone.Entity.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Service References\SvcTipoTelefone\SvcTipoTelefone4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\SvcTipoTelefone\WebApiServiceX.SvcTipoTelefone.ObjectContractOfTipoTelefonechDCM5K5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -374,8 +380,13 @@
     <Compile Include="Areas\RouteDebugger\RequestHelper.cs" />
     <Compile Include="Areas\RouteDebugger\RouteDebuggerAreaRegistration.cs" />
     <Compile Include="Areas\RouteDebugger\RouteDebuggerConfig.cs" />
+    <Compile Include="Controllers\ControllerBase\BaseApiController.cs" />
+    <Compile Include="Controllers\ControllerBase\IBaseApiController.cs" />
+    <Compile Include="Clients\ClientBase\ServiceClientBase.cs" />
+    <Compile Include="Clients\SvcTipoTelefone.cs" />
     <Compile Include="Controllers\Error\ErrorController.cs" />
     <Compile Include="Controllers\Error\ErrorPageController.cs" />
+    <Compile Include="Clients\ClientBase\ServiceClientWrapper.cs" />
     <Compile Include="Controllers\TipoTelefoneController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Filters\LoggingAttribute.cs" />
@@ -409,6 +420,14 @@
     <ProjectReference Include="..\Contracts\Contracts.csproj">
       <Project>{00A217CD-C2D6-4752-B4C5-1149785A1F77}</Project>
       <Name>Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Persistencia\Persistencia.csproj">
+      <Project>{B44CEA2B-67C4-42A9-AB9D-9A9298816750}</Project>
+      <Name>Persistencia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wcf-ServiceX\Wcf-ServiceX.csproj">
+      <Project>{C583286D-AC53-47E6-A963-AC0C7A52414A}</Project>
+      <Name>Wcf-ServiceX</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

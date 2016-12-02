@@ -271,10 +271,15 @@ namespace Repositorio
             //context.Dispose();
         }           
 
-        public PaginatedList<Entity> Paginate(int pageIndex, int pageSize,string order = "cod")
+        public PaginatedList<Entity> Paginate(int pageIndex, int pageSize,string order = "cod",bool desc = false)
         {
-            //not implemented yet
-            return new PaginatedList<Entity>(GetAll() as IQueryable<Entity>, pageIndex, pageSize,order);
+            return new PaginatedList<Entity>(GetAll() as IQueryable<Entity>, pageIndex, pageSize,order,desc);
+        }
+
+        public PaginatedList<TEntity> PaginateEntity(int pageIndex, int pageSize,  string orderby = "cod", bool desc = false)
+        {
+            PaginatedList<TEntity> pag = new PaginatedList<TEntity>(GetAll() as IQueryable<TEntity>, pageIndex, pageSize, orderby, desc);
+            return pag;
         }
 
         public TEntity GetSingle(TId id)

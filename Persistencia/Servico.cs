@@ -13,7 +13,9 @@ namespace Model
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Runtime.Serialization;
 
+    [KnownType(typeof(Servico))]
     public partial class Servico : Entity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,17 +23,25 @@ namespace Model
         {
             this.Agendamentos = new HashSet<Agendamento>();
         }
-        
+        [DataMember]
         public string Nome { get; set; }
+        [DataMember]
         public string tipoServico { get; set; }
+        [DataMember]
         public System.DateTime TempoExecucao { get; set; }
+        [DataMember]
         public string descricao { get; set; }
+        [DataMember]
         public Nullable<decimal> valor { get; set; }
+        [DataMember]
         public string observacoes { get; set; }
+        [DataMember]
         public int cod_profissional { get; set; }
-    
+            
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [DataMember]
         public virtual ICollection<Agendamento> Agendamentos { get; set; }
+        [DataMember]
         public virtual Profissional Profissional { get; set; }
     }
 }

@@ -188,6 +188,8 @@
       <DependentUpon>ServiceXY.svc</DependentUpon>
     </Compile>
     <Compile Include="Generic\IServiceXY.cs" />
+    <Compile Include="Mapper\EntityMapper.cs" />
+    <Compile Include="Mapper\IEntityMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ISVCTipoTelefone.cs" />
     <Compile Include="Services\ITipoTelefoneService.cs" />
@@ -207,7 +209,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Mapper\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -1,32 +1,41 @@
-﻿using System.Collections.Generic;
-using System.Web.Http;
-using System.Web.Http.Cors;
-using WebApiServiceX.SvcTipoTelefone;
-
-namespace WebApiServiceX.Controllers
+﻿namespace WebApiServiceX.Controllers
 {
+    using WebApiServiceX.Controllers.ControllerBase;
 
-    //[RoutePrefix("servicex/tipotelefone")]
-
-    //[Authorize]
-    public class TipoTelefoneController : ApiController
+    public class TipoTelefoneController : BaseApiController<SvcTipoTelefoneClient>
     {
-        private readonly ISvcTipoTelefone _service;
 
-        public TipoTelefoneController(SvcTipoTelefoneClient service)
+        public TipoTelefoneController(SvcTipoTelefoneClient provider) : base(provider)
         {
-            _service = service;// new SvcTipoTelefoneClient();
+            
         }
+
+        //public TipoTelefoneController()
+        //{
+        //    _service = new ServiceClientWrapper<ClientBase.SvcTipoTelefoneClient>();
+        //}
+
+        //public TipoTelefoneController(ServiceClientWrapper<SvcTipoTelefoneClient> provider) : base(provider)
+        //{
+        //    _service = 
+        //}
+
+        //private readonly SvcTipoTelefoneClient _service;
+
+
+        //public TipoTelefoneController(ServiceClientWrapper<SvcTipoTelefoneClient> provider)
+        //{
+        //    _service = provider;
+        //}
+
 
         //[HttpGet]
-        //[Route("tipotelefones/{Id}/orders")]
-        [HttpGet]
-        public IHttpActionResult GetTipoTelefones(int pageIndex =1, int pageSize = 25)
-        {
-            PaginateResponse re = _service.Paginate(new PaginateRequest(pageIndex, pageSize));
-            
-            return Ok(re.PaginateResult);
-        }
+        //public IHttpActionResult GetTipoTelefones(int pageIndex = 0, int pageSize = 25, string orderby = "cod", bool desc = false)
+        //{
+        //    ObjectContractOfTipoTelefonechDCM5K5 objContract = _service.PaginateEntity(pageIndex, pageSize, orderby, desc);// re.PaginateEntityResult;
+        //    _service.Complete();
+        //     return Ok(objContract);
+        //}
 
     }
 }

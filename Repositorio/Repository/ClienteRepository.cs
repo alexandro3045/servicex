@@ -1,11 +1,13 @@
 ﻿using Infraestrutura;
 using Model;
 using System.Reflection;
+using Repositorio.Generic.Utils;
+using System;
 
 namespace Repositorio
 {
 
-    public class ClienteRepository : Repository<Cliente, int>, IRepository
+    public class ClienteRepository : Repository<Cliente, int>//, IRepository
     {
         #region singleton Instance
         private static ClienteRepository _instance;
@@ -20,6 +22,7 @@ namespace Repositorio
                 return _instance;
             }
         }
+
         #endregion
     }
 }

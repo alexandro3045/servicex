@@ -2,10 +2,11 @@
 using Infraestrutura;
 using Model;
 using Repositorio.Generic.Utils;
+using Repositorio.Interface;
 
 namespace Repositorio
 {
-    public class TelefonesProfRepository : Repository<TelsProfissionals,int>, IRepository
+    public class TelefonesProfRepository : Repository<TelsProfissionals,int>, ITipoTelefoneRepository<TipoTelefone>
     {
         #region singleton Instance
         private static TelefonesProfRepository _instance;
@@ -19,6 +20,11 @@ namespace Repositorio
 
                 return _instance;
             }
+        }
+
+        PaginatedList<Entity> IRepository<Entity, int>.Paginate(int pageSize, int pageIndex, string orderby, bool desc)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

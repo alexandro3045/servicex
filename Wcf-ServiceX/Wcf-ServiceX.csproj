@@ -129,6 +129,8 @@
     <Compile Include="Decorator\EfDataContractSerializerAttribute.cs" />
     <Compile Include="Decorator\EfDataContractSerializerOperationBehavior.cs" />
     <Compile Include="Decorator\EfDynamicProxyAssemblies.cs" />
+    <Compile Include="Decorator\JsonSerialization\DataContractJsonSerializerOperationBehavior.cs" />
+    <Compile Include="Decorator\JsonSerialization\JsonDataContractBehaviorAttribute.cs" />
     <Compile Include="Decorator\ReferencePreservingProxyDataContractSerializerOperationBehavior.cs" />
     <Compile Include="DI\WCFNinjectModule.cs" />
     <Compile Include="Generic\GenericService.cs" />
@@ -141,7 +143,6 @@
     <Compile Include="Services\SvcTipoTelefone.svc.cs">
       <DependentUpon>SvcTipoTelefone.svc</DependentUpon>
     </Compile>
-    <Compile Include="WCFNinjectModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

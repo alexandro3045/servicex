@@ -8,6 +8,6 @@ namespace Domain
 {
     public class DomainConstants
     {
-        public const string DataContractNamespace = "DATACONTRACTS";
+        public const string DataContractNamespace = "servicex.com";
     }
 }

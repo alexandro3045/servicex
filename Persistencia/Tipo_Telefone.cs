@@ -9,14 +9,17 @@
 
 namespace Model
 {
+    using Domain;
     using Infraestrutura;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Runtime.Serialization;
 
-    [KnownType(typeof(TipoTelefone))]
+    //[KnownType(typeof(TipoTelefone))]
     [Table("Tipo_Telefone")]
+    [Serializable]
+    [DataContract(Namespace = DomainConstants.DataContractNamespace, IsReference = true)]
     public partial class TipoTelefone : Entity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

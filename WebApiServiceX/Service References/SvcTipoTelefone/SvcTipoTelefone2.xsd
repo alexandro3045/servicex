@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Model" />
-  <xs:import schemaLocation="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd3" namespace="DATACONTRACTS" />
-  <xs:element name="Initialize">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="InitializeResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
+  <xs:import schemaLocation="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd2" namespace="servicex.com" />
+  <xs:import schemaLocation="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Wcf_ServiceX.Generic" />
   <xs:element name="Complete">
     <xs:complexType>
       <xs:sequence />
@@ -25,7 +15,7 @@
   <xs:element name="Add">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="param" nillable="true" type="q1:TipoTelefone" />
+        <xs:element xmlns:q1="servicex.com" minOccurs="0" name="param" nillable="true" type="q1:TipoTelefone" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -37,7 +27,7 @@
   <xs:element name="Update">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="param" nillable="true" type="q2:TipoTelefone" />
+        <xs:element xmlns:q2="servicex.com" minOccurs="0" name="param" nillable="true" type="q2:TipoTelefone" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -49,7 +39,7 @@
   <xs:element name="Remove">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="param" nillable="true" type="q3:TipoTelefone" />
+        <xs:element xmlns:q3="servicex.com" minOccurs="0" name="param" nillable="true" type="q3:TipoTelefone" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -69,7 +59,24 @@
   <xs:element name="PaginateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="DATACONTRACTS" minOccurs="0" name="PaginateResult" nillable="true" type="q4:ArrayOfEntity" />
+        <xs:element xmlns:q4="servicex.com" minOccurs="0" name="PaginateResult" nillable="true" type="q4:ArrayOfEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PaginateEntity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="orderby" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="desc" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PaginateEntityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Wcf_ServiceX.Generic" minOccurs="0" name="PaginateEntityResult" nillable="true" type="q5:ObjectContractOfTipoTelefonechDCM5K5" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
