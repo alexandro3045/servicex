@@ -14,7 +14,7 @@ namespace WebApiServiceX.App_Start
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             // Attribute routing.     
-            //routes.MapMvcAttributeRoutes();
+             //routes.MapMvcAttributeRoutes();
 
             routes.MapRoute(
                 name: "Default",

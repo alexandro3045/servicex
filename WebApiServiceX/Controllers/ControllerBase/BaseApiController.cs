@@ -1,30 +1,30 @@
 ﻿using System.Web.Http;
+using Wcf_ServiceX.ServiceEvents;
 using WebApiServiceX.Clients.ClientBase;
+
 
 namespace WebApiServiceX.Controllers.ControllerBase
 {
-    public abstract class BaseApiController<TChannel> : ApiController, IBaseApiController
+    public   class BaseApiController<TChannel> : ApiController,IBaseApiController
          where TChannel : class
     {
-        protected ServiceClientBase _service;
-        public BaseApiController(ServiceClientBase provider)
+        public ServiceBase _service;
+        public BaseApiController(ServiceBase provider)
         {
-            _service = provider;           
+            _service = provider;
         }
 
 
         [HttpGet]
-        public IHttpActionResult Get(int pageIndex = 0, int pageSize = 25, string orderby = "cod", bool desc = false)
+        public IHttpActionResult GetResult(int pageIndex = 0, int pageSize = 25, string orderby = "cod", bool desc = false)
         {
             //PaginateEntityResponse response = _service.PaginateEntity(new PaginateEntityRequest(pageIndex, pageSize, orderby, desc));// re.PaginateEntityResult;
             //_service.Complete(new CompleteRequest());
             //return Ok(response.PaginateEntityResult);
+            
+            var response = _service.PaginateEntity(new PaginateEntityRequest() { pageIndex = pageIndex,pageSize = pageSize,orderby = orderby,desc= desc});
 
-            var request = new SvcTipoTelefone.PaginateEntityRequest(pageIndex, pageSize, orderby, desc);
-
-            SvcTipoTelefone.PaginateEntityResponse response = _service.PaginateEntity(request);
-
-            _service.Complete(new SvcTipoTelefone.CompleteRequest());
+            _service.Complete(new CompleteRequest());
 
             return Ok(response.PaginateEntityResult);
         }

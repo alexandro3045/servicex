@@ -1,43 +1,46 @@
-﻿using WebApiServiceX.Controllers.ControllerBase;
+﻿using WebApiServiceX.Clients.ClientBase;
+using WebApiServiceX.Controllers.ControllerBase;
+
 
 namespace WebApiServiceX.Controllers
 {
     //using WebApiServiceX.Controllers.ControllerBase;
 
-    public class TipoTelefoneController : BaseApiController<SvcTipoTelefoneClient>
+    public class TipoTelefoneController : BaseApiController<SvcTipoTelefoneClient>, ITipoTelefoneController, IBaseApiController
     {
 
-        public TipoTelefoneController(SvcTipoTelefoneClient provider) : base(provider)
-        {
-            
-        }
-
-        //public TipoTelefoneController()
+        //public TipoTelefoneController(ServiceBase provider) : base(provider)
         //{
-        //    _service = new ServiceClientWrapper<ClientBase.SvcTipoTelefoneClient>();
+        //    _service = provider;
         //}
+
 
         //public TipoTelefoneController(ServiceClientWrapper<SvcTipoTelefoneClient> provider) : base(provider)
         //{
         //    _service = 
         //}
 
-        //private readonly SvcTipoTelefoneClient _service;
-
-
-        //public TipoTelefoneController(ServiceClientWrapper<SvcTipoTelefoneClient> provider)
+        //private readonly IBaseApiController _controler;
+        //public TipoTelefoneController(BaseApiController<WebApiServiceX.Clients.ClientBase.ServiceBase> controler)
         //{
-        //    _service = provider;
+        //    _controler = controler;
         //}
 
 
-        //[HttpGet]
-        //public IHttpActionResult GetTipoTelefones(int pageIndex = 0, int pageSize = 25, string orderby = "cod", bool desc = false)
+
+        //public IHttpActionResult GetResult(int pageIndex = 0, int pageSize = 25, string orderby = "cod", bool desc = false)
         //{
-        //    ObjectContractOfTipoTelefonechDCM5K5 objContract = _service.PaginateEntity(pageIndex, pageSize, orderby, desc);// re.PaginateEntityResult;
-        //    _service.Complete();
-        //     return Ok(objContract);
+        //    //ObjectContractOfTipoTelefonechDCM5K5 objContract = _service.PaginateEntity(pageIndex, pageSize, orderby, desc);// re.PaginateEntityResult;
+        //    //_service.Complete();
+        //    return Ok(1);
         //}
 
+        //private IHttpActionResult Ok(int v)
+        //{
+        //    throw new NotImplementedException();
+        //}
+        public TipoTelefoneController(ServiceBase provider) : base(provider)
+        {
+        }
     }
 }

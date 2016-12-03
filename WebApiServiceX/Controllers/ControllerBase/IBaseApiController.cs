@@ -8,6 +8,6 @@ namespace WebApiServiceX.Controllers.ControllerBase
 {
     public interface IBaseApiController
     {
-        IHttpActionResult Get(int pageIndex = 0, int pageSize = 25, string orderby = "cod", bool desc = false);
+        IHttpActionResult GetResult(int pageIndex = 0, int pageSize = 25, string orderby = "cod", bool desc = false);
     }
 }

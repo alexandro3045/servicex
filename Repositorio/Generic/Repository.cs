@@ -278,7 +278,9 @@ namespace Repositorio
 
         public PaginatedList<TEntity> PaginateEntity(int pageIndex, int pageSize,  string orderby = "cod", bool desc = false)
         {
-            PaginatedList<TEntity> pag = new PaginatedList<TEntity>(GetAll() as IQueryable<TEntity>, pageIndex, pageSize, orderby, desc);
+            PaginatedList<TEntity> pag = new PaginatedList<TEntity>(GetPaged(), pageIndex, pageSize, orderby, desc);
+
+
             return pag;
         }
 
@@ -326,6 +328,29 @@ namespace Repositorio
 
 
         #region Private
+
+        private IQueryable<TEntity> GetPaged(
+            Expression<Func<TEntity, bool>> where = null,
+            Expression<Func<TEntity, object>> orderBy = null ,
+            int pageIndex = 0,
+            int pageSize = 25,
+            bool desc = false)
+        {
+            try
+            {
+                IQueryable<TEntity> queryable =
+                    (where != null) ?
+                      (!desc && orderBy != null) ? context.Set<TEntity>().Where(where).OrderBy(orderBy).Skip(pageIndex * pageSize).Take(pageSize)
+                      : context.Set<TEntity>().Where(where).Skip(pageIndex * pageSize).Take(pageSize)
+                    : context.Set<TEntity>().Skip(pageIndex * pageSize).Take(pageSize);
+
+                return queryable;// !desc && orderBy != null ? queryable.OrderBy(orderBy) : queryable;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
         private IQueryable<TEntity> GetAll(
               Expression<Func<TEntity, bool>> where = null,

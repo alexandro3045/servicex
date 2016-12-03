@@ -25,10 +25,10 @@ namespace Repositorio.Generic.Utils
             PageSize = pageSize;
             TotalCount = source.Count();
             TotalPages = (int)Math.Ceiling(TotalCount / (double)PageSize);
-
-            this.AddRange(
-              desc ? source.OrderByDescending(p => orderby).Skip(PageIndex * PageSize).Take(PageSize)
-              : source.OrderBy(p => orderby).Skip(PageIndex * PageSize).Take(PageSize));
+            AddRange(source);
+            //this.AddRange(
+            //  desc ? source.OrderByDescending(p => orderby).Skip(PageIndex * PageSize).Take(PageSize)
+            //  : source.OrderBy(p => orderby).Skip(PageIndex * PageSize).Take(PageSize));
         }
 
         public bool HasPreviousPage

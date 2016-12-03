@@ -11,7 +11,6 @@ namespace WebApiServiceX.App_Start
         public static void Register(HttpConfiguration config)
         {
 
-
             EnableCrossSiteRequests(config);
 
 
@@ -26,8 +25,8 @@ namespace WebApiServiceX.App_Start
 
             //config.Routes.MapHttpRoute(
             //     name: "TipoTelefones",
-            //     routeTemplate: "api/tipotelefones/{userName}",
-            //     defaults: new { controller = "TipoTelefone", userName = RouteParameter.Optional }
+            //     routeTemplate: "servicex/tipotelefone/{action}",
+            //     defaults: new { controller = "TipoTelefoneController", action = RouteParameter.Optional }
             // );
 
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();

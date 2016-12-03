@@ -15,6 +15,7 @@ namespace WebApiServiceX.App_Start
     using Services;
     using SvcTipoTelefone;
     using Controllers.ControllerBase;
+    using Controllers;
 
     public static class NinjectWebCommon 
     {
@@ -45,16 +46,27 @@ namespace WebApiServiceX.App_Start
         private static IKernel CreateKernel()
         {
             var kernel = new StandardKernel();
-            kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
-            kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
-            //Suport WebAPI Injection
-            GlobalConfiguration.Configuration.DependencyResolver = new WebApiContrib.IoC.Ninject.NinjectResolver(kernel);
-            //Suuport injection in WebAPI filters (Repo in filter LearningAuthorizeAttribute)
-            GlobalConfiguration.Configuration.Services.Add(typeof(IFilterProvider), new NinjectWebApiFilterProvider(kernel));
+            try { 
+                kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
+                kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
-            RegisterServices(kernel);
-            return kernel;
+                //Suport WebAPI Injection
+                GlobalConfiguration.Configuration.DependencyResolver = new WebApiContrib.IoC.Ninject.NinjectResolver(kernel);
+                //Suuport injection in WebAPI filters (Repo in filter LearningAuthorizeAttribute)
+                GlobalConfiguration.Configuration.Services.Add(typeof(IFilterProvider), new NinjectWebApiFilterProvider(kernel));
+
+                RegisterServices(kernel);
+
+                GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
+
+                return kernel;
+            }
+            catch
+            {
+                kernel.Dispose();
+                throw;
+            }
         }
 
         /// <summary>
@@ -63,8 +75,9 @@ namespace WebApiServiceX.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            //kernel.Bind<LearningContext>().To<LearningContext>().InRequestScope();
             kernel.Bind<IBaseApiController>().To<BaseApiController<ISvcTipoTelefone>>().InSingletonScope();//<ISvcTipoTelefone>().To<SvcTipoTelefoneClient>().InRequestScope();//.ToSelf();//.To<LearningRepository>().InRequestScope();
-        }        
+            kernel.Bind<ITipoTelefoneController>().To<TipoTelefoneController>().InRequestScope();
+
+        }
     }
-}
+} 

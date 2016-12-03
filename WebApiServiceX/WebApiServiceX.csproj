@@ -355,6 +355,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\NinjectDependencyScope.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -387,6 +388,7 @@
     <Compile Include="Controllers\Error\ErrorController.cs" />
     <Compile Include="Controllers\Error\ErrorPageController.cs" />
     <Compile Include="Clients\ClientBase\ServiceClientWrapper.cs" />
+    <Compile Include="Controllers\ITipoTelefoneController.cs" />
     <Compile Include="Controllers\TipoTelefoneController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Filters\LoggingAttribute.cs" />

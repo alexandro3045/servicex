@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using WebApiServiceX.Clients.ClientBase;
 
 namespace WebApiServiceX.SvcTipoTelefone
 {

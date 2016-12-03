@@ -17,10 +17,15 @@ namespace WebApiServiceX
 
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
+            //AreaRegistration.RegisterAllAreas();
 
             //WebApiConfig.Register(GlobalConfiguration.Configuration);
-            GlobalConfiguration.Configure(WebApiConfig.Register);
+            //GlobalConfiguration.Configure(WebApiConfig.Register);
+            //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            //RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            AreaRegistration.RegisterAllAreas();
+            WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
@@ -48,7 +53,7 @@ namespace WebApiServiceX
             //    GlobalConfiguration.Configuration.DependencyResolver = dependencyResolver;
             //    DependencyResolver.SetResolver(dependencyResolver);
             //}
-             
+
 
         }
 
