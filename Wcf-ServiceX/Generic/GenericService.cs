@@ -91,7 +91,7 @@ namespace Wcf_ServiceX.Generic
         //}
 
         [DurableOperation()]
-        public ObjectContract<TEntity> PaginateEntity(int pageIndex, int pageSize, string orderby, bool desc)
+        public ObjectContract<TEntity> PaginateEntity(int pageIndex = 1, int pageSize = 25, string orderby = "cod", bool desc = false)
         {
             var pag = _repo.PaginateEntity(pageIndex, pageSize, orderby, desc);
 

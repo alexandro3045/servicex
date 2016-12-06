@@ -4,6 +4,7 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Core;
 using System.Linq;
 using System.Data.Entity.Validation;
+using PagedList;
 
 #region namespace project
 using Infraestrutura;
@@ -271,17 +272,35 @@ namespace Repositorio
             //context.Dispose();
         }           
 
-        public PaginatedList<Entity> Paginate(int pageIndex, int pageSize,string order = "cod",bool desc = false)
+        public PaginatedList<Entity> Paginate(int pageIndex =1, int pageSize = 25,string order = "cod",bool desc = false)
         {
-            return new PaginatedList<Entity>(GetAll() as IQueryable<Entity>, pageIndex, pageSize,order,desc);
+            return new PaginatedList<Entity>(GetAll() as IQueryable<Entity>, pageIndex, pageSize, order, desc);
         }
 
-        public PaginatedList<TEntity> PaginateEntity(int pageIndex, int pageSize,  string orderby = "cod", bool desc = false)
+        public PaginatedList<TEntity> PaginateEntity(int pageIndex = 1, int pageSize = 25,  string orderby = "cod", bool desc = false)
         {
-            PaginatedList<TEntity> pag = new PaginatedList<TEntity>(GetPaged(), pageIndex, pageSize, orderby, desc);
+            return new PaginatedList<TEntity>(GetAll(), pageIndex, pageSize, orderby,desc);
+        }
 
+        public static Expression<Func<T, object>> GetSortLambda<T>(string propertyPath)
+        {
+            var param = Expression.Parameter(typeof(T), "p");
+            var parts = propertyPath.Split('.');
+            Expression parent = param;
+            foreach (var part in parts)
+            {
+                parent = Expression.Property(parent, part);
+            }
 
-            return pag;
+            if (parent.Type.IsValueType)
+            {
+                var converted = Expression.Convert(parent, typeof(object));
+                return Expression.Lambda<Func<T, object>>(converted, param);
+            }
+            else
+            {
+                return Expression.Lambda<Func<T, object>>(parent, param);
+            }
         }
 
         public TEntity GetSingle(TId id)
@@ -329,22 +348,35 @@ namespace Repositorio
 
         #region Private
 
-        private IQueryable<TEntity> GetPaged(
-            Expression<Func<TEntity, bool>> where = null,
+        private IPagedList<TEntity> GetPaged(
             Expression<Func<TEntity, object>> orderBy = null ,
-            int pageIndex = 0,
+            int pageIndex = 1,
             int pageSize = 25,
             bool desc = false)
         {
+            //IQueryable<TEntity> List = null; 
+            //try
+            //{
+            //    //return desc ? context.Set<TEntity>().OrderByDescending(orderBy).ToPagedList(pageIndex, pageSize)
+            //    //    : context.Set<TEntity>().OrderBy(orderBy).ToPagedList(pageIndex, pageSize); 
+            //    var superSet = desc ? context.Set<TEntity>()//.OrderByDescending(orderBy)
+            //        : context.Set<TEntity>();//.OrderBy(orderBy);
+
+            //    List = new PagedList<TEntity>(superSet, pageIndex, pageSize);
+            //}
+            //catch (Exception ex)
+            //{
+            //    string msg = ex.Message;
+            //}
+
+            //return List;
+
             try
             {
-                IQueryable<TEntity> queryable =
-                    (where != null) ?
-                      (!desc && orderBy != null) ? context.Set<TEntity>().Where(where).OrderBy(orderBy).Skip(pageIndex * pageSize).Take(pageSize)
-                      : context.Set<TEntity>().Where(where).Skip(pageIndex * pageSize).Take(pageSize)
-                    : context.Set<TEntity>().Skip(pageIndex * pageSize).Take(pageSize);
+              
 
-                return queryable;// !desc && orderBy != null ? queryable.OrderBy(orderBy) : queryable;
+                return desc ? context.Set<TEntity>().OrderByDescending(orderBy).ToPagedList(pageIndex,pageSize)
+                    : context.Set<TEntity>().OrderBy(orderBy).ToPagedList(pageIndex, pageSize);
             }
             catch (Exception)
             {

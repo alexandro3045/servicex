@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="072031c4-4fa2-4bcc-bbae-56e0863237ed" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2288/Services/SvcTipoTelefone.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SvcTipoTelefone.xsd" MetadataType="Schema" ID="2ae4afe4-f02f-417f-9ef9-9c710229ab29" SourceId="1" SourceUrl="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd2" />
+    <MetadataFile FileName="SvcTipoTelefone1.xsd" MetadataType="Schema" ID="a337da6c-33d2-4247-90e4-6e214f0b6109" SourceId="1" SourceUrl="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd1" />
+    <MetadataFile FileName="SvcTipoTelefone2.xsd" MetadataType="Schema" ID="19958d7b-ff17-42a1-b8ff-8dc9b86b116b" SourceId="1" SourceUrl="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd0" />
+    <MetadataFile FileName="SvcTipoTelefone.disco" MetadataType="Disco" ID="723904ec-831a-428c-9787-98b31f9f7b2d" SourceId="1" SourceUrl="http://localhost:2288/Services/SvcTipoTelefone.svc?disco" />
+    <MetadataFile FileName="SvcTipoTelefone3.xsd" MetadataType="Schema" ID="2eb55743-24cc-483c-b1e7-b5544d6e22bc" SourceId="1" SourceUrl="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd3" />
+    <MetadataFile FileName="SvcTipoTelefone4.xsd" MetadataType="Schema" ID="a57601ab-cac4-4707-a785-91247fa74e85" SourceId="1" SourceUrl="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd4" />
+    <MetadataFile FileName="SvcTipoTelefone.wsdl" MetadataType="Wsdl" ID="6722f44e-788e-47d1-98a1-8a6867d1a2ef" SourceId="1" SourceUrl="http://localhost:2288/Services/SvcTipoTelefone.svc?wsdl" />
+    <MetadataFile FileName="SvcTipoTelefone1.wsdl" MetadataType="Wsdl" ID="e6e1a3f4-ce86-4a97-b85e-86e75ac5d7b4" SourceId="1" SourceUrl="http://localhost:2288/Services/SvcTipoTelefone.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="SvcTipoTelefone2.wsdl" MetadataType="Wsdl" ID="3609fd8b-7e3d-4af3-bc0d-3740fdc48727" SourceId="1" SourceUrl="http://localhost:2288/Services/SvcTipoTelefone.svc?wsdl=wsdl1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

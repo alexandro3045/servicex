@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="servicex.com" elementFormDefault="qualified" targetNamespace="servicex.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Model" />
+  <xs:import schemaLocation="http://localhost:2288/Services/SvcTipoTelefone.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="TipoTelefone">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entity">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="TelsClients" nillable="true" type="q1:ArrayOfTelsClients" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="TelsProfissionals" nillable="true" type="q2:ArrayOfTelsProfissionals" />
+          <xs:element minOccurs="0" name="desc_tipo_telefone" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TipoTelefone" nillable="true" type="tns:TipoTelefone" />
+  <xs:complexType name="Entity">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:IEntityOfint">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Entity" nillable="true" type="tns:Entity" />
+  <xs:complexType name="IEntityOfint">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="IEntityOf{0}{#}" Namespace="servicex.com" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConcurrencyToken" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="cod" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="IEntityOfint" nillable="true" type="tns:IEntityOfint" />
+  <xs:complexType name="ArrayOfEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Entity" nillable="true" type="tns:Entity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEntity" nillable="true" type="tns:ArrayOfEntity" />
+  <xs:complexType name="ArrayOfTipoTelefone">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoTelefone" nillable="true" type="tns:TipoTelefone" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipoTelefone" nillable="true" type="tns:ArrayOfTipoTelefone" />
+</xs:schema>

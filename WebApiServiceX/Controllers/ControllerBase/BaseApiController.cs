@@ -16,6 +16,7 @@ namespace WebApiServiceX.Controllers.ControllerBase
 
 
         [HttpGet]
+        [Route("servicex/{controller}/{pageIndex}/{pageSize}/{orderby}/{desc}")]
         public IHttpActionResult GetResult(int pageIndex = 0, int pageSize = 25, string orderby = "cod", bool desc = false)
         {
             //PaginateEntityResponse response = _service.PaginateEntity(new PaginateEntityRequest(pageIndex, pageSize, orderby, desc));// re.PaginateEntityResult;
